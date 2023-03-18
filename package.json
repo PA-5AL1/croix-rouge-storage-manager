@@ -1,6 +1,15 @@
 {
-	"name": "front",
+	"name": "croix-rouge-storage-manager",
+	"author": "Ifzas NGUYEN",
+	"description": "Front web app of final project M2 Computer Engineer at ESGI Paris",
 	"private": true,
+	"license": "MIT",
+	"homepage": "https://github.com/PA-5AL1/croix-rouge-storage-manager",
+	"engines": {
+		"node": ">=18.0.0",
+		"yarn": ">=1.22.0",
+		"npm": "please-use-yarn"
+	},
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
