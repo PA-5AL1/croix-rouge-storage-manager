@@ -5,7 +5,7 @@ School project : ESGI Paris Master 2 Software Architect
 
 ## Installation and Setup Instructions
 
-#### You will need `node` and `yarn` installed globally on your machine.  
+#### You will need `node` and `yarn` installed on your machine.  
 
 1 - Clone this repository.
 
@@ -43,7 +43,7 @@ App URL:
 
 ### Netlify
 
-#### You will need `netlify-cli` installed globally on your machine.
+#### You will need `netlify-cli` installed on your machine.
 
 1 - Import env :
     
