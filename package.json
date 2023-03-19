@@ -6,7 +6,7 @@
 	"license": "MIT",
 	"homepage": "https://github.com/PA-5AL1/croix-rouge-storage-manager",
 	"engines": {
-		"node": ">=18.0.0",
+		"node": ">=16.0.0",
 		"yarn": ">=1.22.0",
 		"npm": "please-use-yarn"
 	},
