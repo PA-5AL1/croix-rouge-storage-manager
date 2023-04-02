@@ -1,0 +1,21 @@
+#container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  aside {
+    width: 200px;
+    background-color: antiquewhite;
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+    flex:1
+  }
+  header {
+    height: 60px;
+    background-color: aquamarine;
+  }
+  main {
+    flex:1
+  }
+}
