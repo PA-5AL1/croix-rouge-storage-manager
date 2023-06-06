@@ -21,14 +21,6 @@
 		"format": "prettier . --write",
 		"prepare": "husky install"
 	},
-	"lint-staged": {
-		"*.{js,ts,tsx}": [
-			"eslint --quiet --cache --fix"
-		],
-		"*.{json,js,ts,jsx,tsx,html}": [
-			"prettier --write"
-		]
-	},
 	"dependencies": {
 		"react": "^18.2.0",
 		"react-bootstrap": "^2.7.4",

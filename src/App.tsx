@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import reactLogo from '/croix-rouge.ico';
-import viteLogo from '/vite.svg';
+import croixRougeLogo from '/croix-rouge.ico';
+import esgiLogo from '/esgi.jpeg';
 import './App.css';
 
 function App() {
@@ -10,24 +10,24 @@ function App() {
 	return (
 		<div className="App">
 			<div>
-				<a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-					<img src={viteLogo} className="logo" alt="Vite logo" />
+				<a href="https://www.esgi.fr/" target="_blank" rel="noreferrer">
+					<img src={esgiLogo} className="logo" alt="Esgi logo" />
 				</a>
-				<a href="https://reactjs.org" target="_blank" rel="noreferrer">
-					<img src={reactLogo} className="logo react" alt="React logo" />
+				<a href="https://www.croix-rouge.fr/" target="_blank" rel="noreferrer">
+					<img src={croixRougeLogo} className="logo react" alt="React logo" />
 				</a>
 			</div>
-			<h1>Vite + React</h1>
+			<h1>Esgi + Croix Rouge</h1>
 			<div className="card">
 				<button onClick={() => setCount((count) => count + 1)}>
-					count is {count}
+					La note est {count} / 20
 				</button>
 				<p>
-					Edit <code>src/App.tsx</code> and save to test HMR
+					Projet annuel 5AL1 
 				</p>
 			</div>
 			<p className="read-the-docs">
-				Click on the Vite and React logos to learn more
+				Cliquer sur les logo ESGI ou Croix Rouge pour plus d'informations.
 			</p>
 		</div>
 	);
