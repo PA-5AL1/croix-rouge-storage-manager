@@ -1,17 +1,22 @@
-import './App.scss';
-import { HashRouter, Routes, Route, Link, Navigate } from "react-router-dom";
-import Dashboard from "./views/dashboard";
-import User from "./views/user";
-import Layout from "./views/layout";
-import GetRouters from "./router";
-
+import { Provider } from "react-redux";
+import store from "./store";
+import loadable from "@loadable/component";
+import LayoutSet from "./components/layout-set";
+const AppRouter = loadable(() => import("./router/appRouter"));
+function Theme() {
+	if (process.env.showColorSet) {
+		const Com = loadable(() => import("@/components/theme"))
+		return <Com />
+	}
+	return null
+}
 function App() {
-
 	return (
-		<HashRouter>
-			<GetRouters />
-		</HashRouter>
+		<Provider store={store}>
+			<AppRouter />
+			<Theme />
+			<LayoutSet />
+		</Provider >
 	);
 }
-
 export default App;
