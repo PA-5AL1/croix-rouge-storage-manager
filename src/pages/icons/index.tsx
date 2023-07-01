@@ -38,18 +38,18 @@ export default function Icons() {
   const { change, icons } = useIcons();
   return (
     <div className="icons-container">
-      <h2>Icon自定义</h2>
-      <div className="mt10">你可以使用ant-design的语义化的矢量图形。</div>
+      <h2>Personnalisation des icônes</h2>
+      <div className="mt10">Vous pouvez utiliser les graphiques vectoriels sémantiques d'ant-design.</div>
       <div className="mt10">
-        另外，你可以在
+          Vous pouvez également utiliser le
         <a href="https://www.iconfont.cn/" target="_blank" rel="noreferrer">
           iconfont
         </a>
-        上添加自定义图标，在用createFromIconfontCN创建的组件上使用type="*"即可
+          Pour ajouter une icône personnalisée, utilisez type="*" sur le composant créé avec createFromIconfontCN
       </div>
       <Row className="mt10">
         <Col span={8}>
-          <Input placeholder="搜索本地相关图标库" onChange={change} />
+          <Input placeholder="Rechercher dans la bibliothèque d'icônes localement pertinente" onChange={change} />
         </Col>
       </Row>
       <Row className="mt10 pd10">

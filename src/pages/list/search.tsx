@@ -10,7 +10,7 @@ import {
   message,
 } from "antd";
 import MyPagination, { PageInfo } from "@/components/pagination";
-import { getMsg, addMsg } from "@/api";
+import { getMsg, addMsg } from "@/api/msg";
 import MyTable from "@/components/table";
 import "./index.less";
 import { MessageList, MapKey } from "@/types"
@@ -25,7 +25,7 @@ export default function SearchPage() {
   const [total, setTotal] = useState(0);
   const [showModal, setShow] = useState(false);
 
-  // 获取列表
+  // get list
   const getDataList = (data: PageInfo) => {
     getMsg(data).then((res) => {
       const { data, status } = res;
@@ -46,7 +46,7 @@ export default function SearchPage() {
     });
   };
 
-  // 添加列表
+  // add list
   const addList = () => {
     form.validateFields().then((values) => {
       addMsg(values).then((res) => {
@@ -60,14 +60,14 @@ export default function SearchPage() {
     });
   };
 
-  // 顶部搜索
+  // top search
   const search = () => {
     let data = searchForm.getFieldsValue();
     setPageData({ page: 1 })
     getDataList(data);
   };
 
-  // 页码改版
+  // Page revision
   const pageChange = (pageData: PageInfo) => {
     let data = searchForm.getFieldsValue();
     getDataList({ ...pageData, ...data });
@@ -76,10 +76,10 @@ export default function SearchPage() {
 
   const tableTop = (
     <Row justify="space-between" gutter={80}>
-      <Col style={{ lineHeight: "32px" }}>表格查询</Col>
+      <Col style={{ lineHeight: "32px" }}>Requête de formulaire</Col>
       <Col>
         <Button type="primary" onClick={() => setShow(true)}>
-          添加消息
+          Ajouter un message
         </Button>
       </Col>
     </Row>
@@ -90,13 +90,13 @@ export default function SearchPage() {
         <div className="top-form">
           <Form layout="inline" form={searchForm}>
             <Form.Item name="name">
-              <Input placeholder="输入消息名称" />
+              <Input placeholder="Entrez le nom du message" />
             </Form.Item>
             <Form.Item name="description">
-              <Input placeholder="输入消息描述词" />
+              <Input placeholder="Entrez le descriptif du message" />
             </Form.Item>
             <Button onClick={search} type="primary" className="submit-btn">
-              搜索
+              recherche
             </Button>
             <Button
               onClick={() => {
@@ -104,7 +104,7 @@ export default function SearchPage() {
                 search();
               }}
             >
-              清空
+              vide
             </Button>
           </Form>
         </div>
@@ -123,37 +123,37 @@ export default function SearchPage() {
         />
       </Spin>
       <Modal
-        title="添加一条记录"
+        title="ajouter un enregistrement"
         visible={showModal}
-        cancelText="取消"
-        okText="添加"
+        cancelText="annuler"
+        okText="ajouter"
         onOk={() => addList()}
         onCancel={() => setShow(false)}
       >
         <Form form={form}>
           <Form.Item
-            label="消息名称"
+            label="nom du message"
             name="name"
             rules={[
               {
                 required: true,
-                message: "Please input your name!",
+                message: "Veuillez entrer votre nom",
               },
             ]}
           >
             <Input />
           </Form.Item>
           <Form.Item
-            label="消息描述"
+            label="description des messages"
             name="description"
             rules={[
               {
                 required: true,
-                message: "Please input your description!",
+                message: "Veuillez entrer votre description",
               },
               {
-                min: 10,
-                message: "The description must be more than 10 words!",
+                min: 6,
+                message: "La description doit faire plus de 6 mots",
               },
             ]}
           >

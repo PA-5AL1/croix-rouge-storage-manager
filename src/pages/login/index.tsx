@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import MyIcon from "@/components/icon";
 import { saveUser, getLocalUser, saveToken } from "@/utils";
 import { setUserInfoAction } from "@/store/user/action";
-import { login } from "@/api";
+import { login } from "@/api/login";
 import { UserInfo } from "@/types"
 import "./index.less";
 
@@ -19,14 +19,14 @@ const initialValues = {
 const IPT_RULE_USERNAME = [
   {
     required: true,
-    message: "请输入用户名",
+    message: "veuillez entrer le nom d'utilisateur",
   },
 ];
 
 const IPT_RULE_PASSWORD = [
   {
     required: true,
-    message: "请输入密码",
+    message: "veuillez entrer le mot de passe",
   },
 ];
 
@@ -62,7 +62,7 @@ export default function Login() {
     <div className="login-container">
       <div className="wrapper">
         <div className="title">react-ant-admin</div>
-        <div className="welcome">欢迎使用，请先登录</div>
+        <div className="welcome">Bienvenue, veuillez d'abord vous connecter</div>
         <Form
           className="login-form"
           initialValues={initialValues}
@@ -71,7 +71,7 @@ export default function Login() {
           <Form.Item name="account" rules={IPT_RULE_USERNAME}>
             <Input
               prefix={<MyIcon type="icon_nickname" />}
-              placeholder="账号:admin/user"
+              placeholder="compte:admin/user"
             />
           </Form.Item>
           <Form.Item name="pswd" rules={IPT_RULE_PASSWORD}>
@@ -79,12 +79,12 @@ export default function Login() {
               prefix={<MyIcon type="icon_locking" />}
               type="password"
               autoComplete="off"
-              placeholder="密码:admin123/user123"
+              placeholder="mot de passe:admin123/user123"
             />
           </Form.Item>
           <Form.Item>
             <Form.Item name="remember" valuePropName="checked" noStyle>
-              <Checkbox>记住我</Checkbox>
+              <Checkbox>souviens moi</Checkbox>
             </Form.Item>
           </Form.Item>
           <Form.Item className="btns">
@@ -94,9 +94,9 @@ export default function Login() {
               className="login-form-button"
               loading={btnLoad}
             >
-              登录
+              Connexion
             </Button>
-            <Button htmlType="reset">重置</Button>
+            <Button htmlType="reset">Réinitialiser</Button>
           </Form.Item>
         </Form>
       </div>

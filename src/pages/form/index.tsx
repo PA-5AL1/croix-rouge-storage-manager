@@ -81,7 +81,7 @@ function RegistrationForm() {
   const [form] = Form.useForm();
 
   const onFinish = (values: any) => {
-    console.log("Received values of form: ", values);
+    console.log("Valeurs reçues de la forme: ", values);
   };
 
   const prefixSelector = (
@@ -132,11 +132,11 @@ function RegistrationForm() {
           rules={[
             {
               type: "email",
-              message: "The input is not valid E-mail!",
+              message: "L'entrée n'est pas valide E-mail",
             },
             {
               required: true,
-              message: "Please input your E-mail!",
+              message: "Veuillez saisir votre e-mail",
             },
           ]}
         >
@@ -149,7 +149,7 @@ function RegistrationForm() {
           rules={[
             {
               required: true,
-              message: "Please input your password!",
+              message: "Veuillez saisir votre mot de passe",
             },
           ]}
           hasFeedback
@@ -165,7 +165,7 @@ function RegistrationForm() {
           rules={[
             {
               required: true,
-              message: "Please confirm your password!",
+              message: "Veuillez saisir votre mot de passe",
             },
             ({ getFieldValue }) => ({
               validator(_, value) {
@@ -174,7 +174,7 @@ function RegistrationForm() {
                 }
 
                 return Promise.reject(
-                  new Error("The two passwords that you entered do not match!")
+                  new Error("Les deux mots de passe que vous avez saisis ne correspondent pas")
                 );
               },
             }),
@@ -186,11 +186,11 @@ function RegistrationForm() {
         <Form.Item
           name="nickname"
           label="Nickname"
-          tooltip="What do you want others to call you?"
+          tooltip="Comment voulez-vous que les autres vous appellent?"
           rules={[
             {
               required: true,
-              message: "Please input your nickname!",
+              message: "Veuillez entrer votre pseudo",
               whitespace: true,
             },
           ]}
@@ -205,7 +205,7 @@ function RegistrationForm() {
             {
               type: "array",
               required: true,
-              message: "Please select your habitual residence!",
+              message: "Veuillez sélectionner votre résidence habituelle",
             },
           ]}
         >
@@ -218,7 +218,7 @@ function RegistrationForm() {
           rules={[
             {
               required: true,
-              message: "Please input your phone number!",
+              message: "Veuillez saisir votre numéro de téléphone",
             },
           ]}
         >
@@ -236,7 +236,7 @@ function RegistrationForm() {
           rules={[
             {
               required: true,
-              message: "Please input website!",
+              message: "Veuillez entrer le site Web",
             },
           ]}
         >
@@ -251,7 +251,7 @@ function RegistrationForm() {
 
         <Form.Item
           label="Captcha"
-          extra="We must make sure that your are a human."
+          extra="Nous devons nous assurer que vous êtes un humain."
         >
           <Row gutter={8}>
             <Col span={12}>
@@ -261,7 +261,7 @@ function RegistrationForm() {
                 rules={[
                   {
                     required: true,
-                    message: "Please input the captcha you got!",
+                    message: "Veuillez saisir le captcha que vous avez obtenu",
                   },
                 ]}
               >
@@ -282,7 +282,7 @@ function RegistrationForm() {
               validator: (_, value) =>
                 value
                   ? Promise.resolve()
-                  : Promise.reject(new Error("Should accept agreement")),
+                  : Promise.reject(new Error("Devrait accepter l'accord")),
             },
           ]}
           {...tailFormItemLayout}

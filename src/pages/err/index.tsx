@@ -15,7 +15,7 @@ function useErrorPage(props: ErrProps) {
   const {
     status = "404",
     errTitle = "404",
-    subTitle = "Sorry, the page you visited does not exist.",
+    subTitle = "Désolé, la page que vous avez visitée n'existe pas.",
   } = props;
   const openedMenu = useStateOpenedMenu()
   const history = useHistory()
