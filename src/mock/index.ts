@@ -79,7 +79,7 @@ let menu: MenuList = [
   },
   {
     menu_id: 11,
-    [MENU_TITLE]: "liste de requêtes",
+    [MENU_TITLE]: "liste d'articles",
     [MENU_PATH]: "/search",
     [MENU_KEY]: "listSearch",
     [MENU_PARENTKEY]: "list",
