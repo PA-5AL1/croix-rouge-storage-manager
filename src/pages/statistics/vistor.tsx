@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Row, Col, Card, Progress } from "antd";
-import { getVisitorList, getVisitorData } from "@/api";
+import { getVisitorList, getVisitorData } from "@/api/visitor";
 import { Line as LineEchart } from "@/components/echarts";
 import MyPagination, { PageInfo } from "@/components/pagination";
 import MyTable from "@/components/table";

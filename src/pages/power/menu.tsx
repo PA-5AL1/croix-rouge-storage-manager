@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Row, Button, message, Popconfirm } from "antd";
-import { getMenuList as apiGetList, delMenu } from "@/api";
+import { getMenuList as apiGetList, delMenu } from "@/api/menu";
 import MenuModal from "@/components/modal/menu";
 import MyTable from "@/components/table";
 import MyIcon from "@/components/icon";

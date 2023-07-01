@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Row, Col } from "antd";
 import MyPagination, { PageInfo } from "@/components/pagination";
 import UserModal, { UserID } from "@/components/modal/user";
-import { getUserList } from "@/api";
+import { getUserList } from "@/api/user";
 import "./index.less";
 import MyTable from "@/components/table";
 import { MapKey, ResponseUserInfo } from "@/types"

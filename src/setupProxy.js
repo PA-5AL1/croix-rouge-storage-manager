@@ -1,7 +1,7 @@
 const { createProxyMiddleware } = require("http-proxy-middleware");
 
 const matchUrl = "/api";
-const target = "";
+const target = "https://azhengpersonalblog.top/";
 const prevUrl = "^/api";
 const writeUlr = "/api/react-ant-admin";
 

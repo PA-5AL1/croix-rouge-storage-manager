@@ -1,27 +1,69 @@
-import { useRoutes, Navigate } from "react-router-dom";
+import { useEffect, useMemo, useState } from "react";
+import { Route } from "react-router-dom";
+import { CacheRoute, CacheSwitch } from "react-router-cache-route";
+import routerList, { RouterInfo } from "./list";
+import Intercept from "./intercept";
+import { getMenus } from "@/common";
+import { formatMenu, reduceMenuList } from "@/utils";
+import { MenuList } from "@/types"
+import { useDispatchMenu } from "@/store/hooks";
 
-import Layout from "../views/layout/index"
-import Dashboard from "../views/dashboard/index";
-import User from "../views/user/index";
-import Login from "../views/login";
 
-export const router_item:Array<object> = [
-	{ path:"/", label:"dashboard", key:"/", element: <Navigate to="/login" />},
-	{ path:"/login", label:"login", key:"login", element: <Login />},
-	{
-		path:'/layout',
-		label:"stockage",
-		key:"layout",
-		element: <Layout />,
-		children: [
-			{ path: 'user', label:"User",	key:"User",element: <User />, index: true},
-			{ path: 'home', label:"Dashboard",	key:"Dashboard",element: <Dashboard />}
-		]
-	},
-];
-const GetRouters = () => {
-	const routes:React.ReactElement | null = useRoutes(router_item)
-	return routes
-}
+export default function Router() {
+	const { stateSetMenuList } = useDispatchMenu()
 
-export default GetRouters
+	const [mergeRouterList, setMergeList] = useState<RouterInfo[]>([]);// 本地 和 接口返回的路由列表 合并的结果
+	const [ajaxUserMenuList, setAjaxUserMenuList] = useState<MenuList>([]); // 网络请求回来的 路由列表
+
+	useEffect(() => {
+		if (stateSetMenuList && typeof stateSetMenuList === "function") {
+			getMenus().then((list) => {
+				const formatList = formatMenu(list)
+				const userMenus = reduceMenuList(formatList);
+				// 把请求的数据 和 本地pages页面暴露出的路由列表合并
+				let routers = routerList.map((router) => {
+					let find = userMenus.find((i) => (i[MENU_PARENTPATH] || "") + i[MENU_PATH] === router[MENU_PATH]);
+					if (find) {
+						router = { ...find, ...router }; // 本地 优先 接口结果
+					} else {
+						router[MENU_KEY] = router[MENU_PATH];
+					}
+					return router;
+				});
+				if (list && list.length) {
+					stateSetMenuList(formatList);
+					setAjaxUserMenuList(userMenus);
+					setMergeList(routers);
+				}
+			});
+		}
+	}, [stateSetMenuList]);
+
+
+	const routerBody = useMemo(() => {
+		// 监听 本地路由列表   同时存在长度大于1时 渲染路由组件
+		if (mergeRouterList.length) {
+			return mergeRouterList.map((item) => {
+				let { [MENU_KEY]: key, [MENU_PATH]: path } = item;
+				const RenderRoute = item[MENU_KEEPALIVE] === "true" ? CacheRoute : Route;
+				return (
+					<RenderRoute
+						key={key}
+						exact={true}
+						path={path}
+						render={(allProps) => (
+							<Intercept
+								{...allProps}
+								{...item}
+								menuList={ajaxUserMenuList}
+								pageKey={key}
+							/>
+						)}
+					/>
+				);
+			});
+		}
+	}, [ajaxUserMenuList, mergeRouterList])
+
+	return <CacheSwitch>{routerBody}</CacheSwitch>;
+};

@@ -10,7 +10,6 @@ export default function BottomFooter() {
           target="_blank"
           rel="noreferrer"
         >
-          react-ant-admin文档地址
         </a>
       </p>
       <p>
@@ -19,11 +18,10 @@ export default function BottomFooter() {
           target="_blank"
           rel="noreferrer"
         >
-          qq交流群
         </a>
       </p>
-      <p>备案/许可证编号：湘ICP备20007569号</p>
-      <p>react-ant-admin ©2021 Created by azheng</p>
+      <p></p>
+      <p></p>
     </Footer>
   );
 }
