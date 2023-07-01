@@ -15,26 +15,26 @@ const modes: LayoutModes = [
   {
     img: singImg,
     mode: Types.SINGLE_COLUMN,
-    alt: "单列布局",
+    alt: "mise en page sur une seule colonne",
   },
   {
     img: twoImg,
     mode: Types.TWO_COLUMN,
-    alt: "两列布局",
+    alt: "mise en page à deux colonnes",
   },
   {
     img: twoFlanksImg,
     mode: Types.TWO_FLANKS,
-    alt: "两侧布局",
+    alt: "mise en page des deux côtés",
   },
 ];
 const RadioArray = [
   {
-    l: "显示",
+    l: "montrer",
     v: true,
   },
   {
-    l: "隐藏",
+    l: "cacher",
     v: false,
   },
 ];
@@ -49,26 +49,26 @@ function LayoutSet() {
   const { stateChangeLayout } = useDispatchLayout()
   const setLayout = useCallback((mode: LayoutMode) => {
     stateChangeLayout(mode)
-    message.success("布局设置成功！");
+    message.success("Mise en page définie avec succès！");
   }, [stateChangeLayout])
   const saveLayout = useCallback(() => {
     setLayoutMode(layoutMode);
     util_setCompVisible(componentsVisible);
-    message.success("布局保存本地成功！");
+    message.success("Mise en page enregistrée localement avec succès！");
   }, [layoutMode, componentsVisible])
   return (
     <div className="layoutset-container">
       <MyIcon type="icon_setting" onClick={wakeup} />
       <Drawer
         className="layoutset-drawer"
-        title="设置布局"
+        title="définir la mise en page"
         placement="right"
         closable={false}
         onClose={onClose}
         width={300}
         visible={drawerVisible}
       >
-        <h2 className="title">选择布局</h2>
+        <h2 className="title">sélectionner la mise en page</h2>
         <Row justify="space-around">
           {modes.map((m) => (
             <div
@@ -80,10 +80,10 @@ function LayoutSet() {
             </div>
           ))}
         </Row>
-        <h2 className="title">组件显示</h2>
+        <h2 className="title">affichage des composants</h2>
         {Object.keys(componentsVisible).map((key) => (
           <Row key={key} className="visible-list">
-            {key === "footer" ? "底部：" : "顶部切换导航："}
+            {key === "footer" ? "footer：" : "haut basculer la navigation："}
             <Radio.Group
               onChange={(e) => stateSetVisible(key as keyof State["componentsVisible"], e.target.value)}
               value={componentsVisible[key as keyof State["componentsVisible"]]}
@@ -98,7 +98,7 @@ function LayoutSet() {
         ))}
         <Row className="save" justify="center">
           <Button type="primary" onClick={saveLayout}>
-            保存此布局
+            enregistrer cette mise en page
           </Button>
         </Row>
       </Drawer>
