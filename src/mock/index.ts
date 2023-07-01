@@ -59,7 +59,7 @@ let currentUser = userInfoList[0];
 let menu: MenuList = [
   {
     menu_id: 9,
-    [MENU_TITLE]: "列表页",
+    [MENU_TITLE]: "Liste",
     [MENU_PATH]: "/list",
     [MENU_KEY]: "list",
     [MENU_PARENTKEY]: "",
@@ -69,7 +69,7 @@ let menu: MenuList = [
   },
   {
     menu_id: 10,
-    [MENU_TITLE]: "卡片列表",
+    [MENU_TITLE]: "liste de cartes",
     [MENU_PATH]: "/card",
     [MENU_KEY]: "listCard",
     [MENU_PARENTKEY]: "list",
@@ -79,7 +79,7 @@ let menu: MenuList = [
   },
   {
     menu_id: 11,
-    [MENU_TITLE]: "查询列表",
+    [MENU_TITLE]: "liste de requêtes",
     [MENU_PATH]: "/search",
     [MENU_KEY]: "listSearch",
     [MENU_PARENTKEY]: "list",
@@ -89,7 +89,7 @@ let menu: MenuList = [
   },
   {
     menu_id: 7,
-    [MENU_TITLE]: "表单页",
+    [MENU_TITLE]: "page de formulaire",
     [MENU_PATH]: "/form",
     [MENU_KEY]: "from",
     [MENU_PARENTKEY]: "",
@@ -99,7 +99,7 @@ let menu: MenuList = [
   },
   {
     menu_id: 6,
-    [MENU_TITLE]: "基础表单",
+    [MENU_TITLE]: "forme basique",
     [MENU_PATH]: "/index",
     [MENU_KEY]: "formIndex",
     [MENU_PARENTKEY]: "from",
@@ -109,7 +109,7 @@ let menu: MenuList = [
   },
   {
     menu_id: 1,
-    [MENU_TITLE]: "详情页",
+    [MENU_TITLE]: "Page de détails",
     [MENU_PATH]: "/details",
     [MENU_KEY]: "details",
     [MENU_PARENTKEY]: "",
@@ -119,7 +119,7 @@ let menu: MenuList = [
   },
   {
     menu_id: 2,
-    [MENU_TITLE]: "个人中心",
+    [MENU_TITLE]: "centre personnel",
     [MENU_PATH]: "/person",
     [MENU_KEY]: "detailsPerson",
     [MENU_PARENTKEY]: "details",
@@ -129,7 +129,7 @@ let menu: MenuList = [
   },
   {
     menu_id: 16,
-    [MENU_TITLE]: "结果页",
+    [MENU_TITLE]: "pages de résultats",
     [MENU_PATH]: "/result",
     [MENU_KEY]: "result",
     [MENU_PARENTKEY]: "",
@@ -169,7 +169,7 @@ let menu: MenuList = [
   },
   {
     menu_id: 17,
-    [MENU_TITLE]: "统计",
+    [MENU_TITLE]: "statistiques",
     [MENU_PATH]: "/statistics",
     [MENU_KEY]: "statistics",
     [MENU_PARENTKEY]: "",
@@ -179,7 +179,7 @@ let menu: MenuList = [
   },
   {
     menu_id: 18,
-    [MENU_TITLE]: "访客统计",
+    [MENU_TITLE]: "statistiques de fréquentation",
     [MENU_PATH]: "/visitor",
     [MENU_KEY]: "visitor",
     [MENU_PARENTKEY]: "statistics",
@@ -189,7 +189,7 @@ let menu: MenuList = [
   },
   {
     menu_id: 12,
-    [MENU_TITLE]: "权限管理",
+    [MENU_TITLE]: "gestion de l'autorité",
     [MENU_PATH]: "/power",
     [MENU_KEY]: "power",
     [MENU_PARENTKEY]: "",
@@ -199,7 +199,7 @@ let menu: MenuList = [
   },
   {
     menu_id: 14,
-    [MENU_TITLE]: "权限类别",
+    [MENU_TITLE]: "catégorie d'autorisation",
     [MENU_PATH]: "/type",
     [MENU_KEY]: "powerType",
     [MENU_PARENTKEY]: "power",
@@ -209,7 +209,7 @@ let menu: MenuList = [
   },
   {
     menu_id: 13,
-    [MENU_TITLE]: "菜单管理",
+    [MENU_TITLE]: "gestion des menus",
     [MENU_PATH]: "/menu",
     [MENU_KEY]: "powerMenu",
     [MENU_PARENTKEY]: "power",
@@ -219,7 +219,7 @@ let menu: MenuList = [
   },
   {
     menu_id: 15,
-    [MENU_TITLE]: "用户管理",
+    [MENU_TITLE]: "Gestion des utilisateurs",
     [MENU_PATH]: "/user",
     [MENU_KEY]: "powerUser",
     [MENU_PARENTKEY]: "power",
@@ -229,7 +229,7 @@ let menu: MenuList = [
   },
   {
     menu_id: 8,
-    [MENU_TITLE]: "图标库",
+    [MENU_TITLE]: "icons",
     [MENU_PATH]: "/icons",
     [MENU_KEY]: "icons",
     [MENU_PARENTKEY]: "",
@@ -263,7 +263,7 @@ const userInfo = {
   msg: "登录成功",
   status: 0,
   token: "12323",
-  data: { user_id: 1, username: "超级管理员", account: "admin", type: "0", isLogin: true },
+  data: { user_id: 1, username: "admin", account: "admin", type: "0", isLogin: true },
 };
 
 const addMenu = {
@@ -309,6 +309,8 @@ const msg: MessageAPi = {
   status: 0,
   data: {
     mapKey: [
+      { title: "消息id", dataIndex: "m_id", key: "m_id" },
+      { title: "消息名称", dataIndex: "name", key: "name" },
       { title: "消息id", dataIndex: "m_id", key: "m_id" },
       { title: "消息名称", dataIndex: "name", key: "name" },
       { title: "消息描述词", dataIndex: "description", key: "description" },

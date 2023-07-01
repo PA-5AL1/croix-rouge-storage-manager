@@ -2,7 +2,7 @@ import { ReactNode, useEffect, useState } from "react";
 import MyIcon from "@/components/icon";
 import MyForm, { FormItemData } from "@/components/form";
 import { Modal, Select, message, FormInstance } from "antd";
-import { addMenu, getMenuInfo, editMenu } from "@/api/menu";
+import { addMenu, getMenuInfo, editMenu } from "@/api";
 import { MenuList, MenuItem } from "@/types"
 import { ModalType, SelectInfo } from "@/pages/power/menu"
 import "./index.less";

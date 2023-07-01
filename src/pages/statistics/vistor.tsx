@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Row, Col, Card, Progress } from "antd";
-import { getVisitorList, getVisitorData } from "@/api/visitor";
+import { getVisitorList, getVisitorData } from "@/api";
 import { Line as LineEchart } from "@/components/echarts";
 import MyPagination, { PageInfo } from "@/components/pagination";
 import MyTable from "@/components/table";
@@ -59,7 +59,7 @@ const echartStyle = {
 const getTableTitle = () => {
   return (
     <Row justify="space-between" gutter={80}>
-      <Col style={{ lineHeight: "32px" }}>访问统计</Col>
+      <Col style={{ lineHeight: "32px" }}>statistiques</Col>
     </Row>
   );
 };
@@ -133,7 +133,7 @@ export default function Vistor() {
       <Row gutter={[20, 20]}>
         <Col span={6}>
           <Card className="cards">
-            <p className="title">访问量</p>
+            <p className="title">Vues</p>
             <p className="num">
               {visitorOpt.series[0].data.reduce((a, c) => a + c, 0)}
             </p>
@@ -144,7 +144,7 @@ export default function Vistor() {
         </Col>
         <Col span={6}>
           <Card className="cards">
-            <p className="title">处理次数</p>
+            <p className="title">Le fois de traitement</p>
             <p className="num">
               {dealOpt.series[0].data.reduce((a, c) => a + c, 0)}
             </p>
@@ -155,10 +155,10 @@ export default function Vistor() {
         </Col>
         <Col span={6}>
           <Card className="cards">
-            <p className="title">今日访问</p>
+            <p className="title">visite aujourd'hui</p>
             <p className="num">{sumVisitor}</p>
             <div>
-              <p>占全部：</p>
+              <p>compte pour tous：</p>
               <Progress
                 strokeColor={strokeColor}
                 percent={getPercentage(
@@ -171,10 +171,10 @@ export default function Vistor() {
         </Col>
         <Col span={6}>
           <Card className="cards">
-            <p className="title">今日处理</p>
+            <p className="title">traité aujourd'hui</p>
             <p className="num">{sumDeal}</p>
             <div>
-              <p>占全部：</p>
+              <p>compte pour tous：</p>
               <Progress
                 strokeColor={strokeColor}
                 percent={getPercentage(

@@ -7,10 +7,10 @@ const { TabPane } = Tabs;
 const { Meta } = Card;
 
 const tagInitVal = [
-  { value: "足球", color: "magenta" },
-  { value: "跑步", color: "volcano" },
-  { value: "web前端", color: "orange" },
-  { value: "90后", color: "gold" },
+  { value: "nutrition", color: "magenta" },
+  { value: "ddd", color: "volcano" },
+  { value: "hygiène", color: "orange" },
+  { value: "ss", color: "gold" },
 ];
 function getRandomColor() {
   return "#" + Math.random().toString(16).slice(2, 8);
@@ -105,49 +105,20 @@ export default function Person() {
               />
             }
           >
-            <Meta title="孔乙己拉夫米" description="生死看淡不服就干！" />
+            <Meta title="Jade" description="" />
             <div className="info">
               <p>
                 <MyIcon type="icon_infopersonal" className="icon" />
-                Web前端
+                Admin
               </p>
               <p>
                 <MyIcon type="icon_address1" className="icon" />
-                广东·深圳
+                Paris 75011
               </p>
-              <p>
-                <MyIcon type="icon_edit" className="icon" />
-                <a
-                  href="https://www.cnblogs.com/kongyijilafumi/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  博客地址
-                </a>
-              </p>
-              <p>
-                <MyIcon type="icon_github" className="icon" />
-                <a
-                  href="https://github.com/kongyijilafumi/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  github地址
-                </a>
-              </p>
-              <p>
-                <MyIcon className="icon" type="icon_QQ" />
-                <a
-                  href="https://qm.qq.com/cgi-bin/qm/qr?k=Wo_kXUOA-mTBviZ6gF4H912AKdE5vTML&jump_from=webapi"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  qq交流群
-                </a>
-              </p>
+
             </div>
             <div className="tags">
-              <div className="title">标签</div>
+              <div className="title">Étiqueter</div>
               <div className="wrapper">
                 {tags.map((item) => (
                   <Tag color={item.color} key={item.color}>
@@ -156,7 +127,7 @@ export default function Person() {
                 ))}
                 {isInput ? (
                   <Input
-                    placeholder="请输入"
+                    placeholder="veuillez saisir"
                     className="ipt"
                     onBlur={addTags}
                     value={value}

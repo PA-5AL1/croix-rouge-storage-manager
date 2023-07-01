@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import MyIcon from "@/components/icon";
 import { saveUser, getLocalUser, saveToken } from "@/utils";
 import { setUserInfoAction } from "@/store/user/action";
-import { login } from "@/api/login";
+import { login } from "@/api";
 import { UserInfo } from "@/types"
 import "./index.less";
 
@@ -61,7 +61,7 @@ export default function Login() {
   return (
     <div className="login-container">
       <div className="wrapper">
-        <div className="title">react-ant-admin</div>
+        <div className="title">Le croix-rouge</div>
         <div className="welcome">Bienvenue, veuillez d'abord vous connecter</div>
         <Form
           className="login-form"
@@ -71,7 +71,7 @@ export default function Login() {
           <Form.Item name="account" rules={IPT_RULE_USERNAME}>
             <Input
               prefix={<MyIcon type="icon_nickname" />}
-              placeholder="compte:admin/user"
+              placeholder="compte"
             />
           </Form.Item>
           <Form.Item name="pswd" rules={IPT_RULE_PASSWORD}>
@@ -79,7 +79,7 @@ export default function Login() {
               prefix={<MyIcon type="icon_locking" />}
               type="password"
               autoComplete="off"
-              placeholder="mot de passe:admin123/user123"
+              placeholder="mot de passe"
             />
           </Form.Item>
           <Form.Item>

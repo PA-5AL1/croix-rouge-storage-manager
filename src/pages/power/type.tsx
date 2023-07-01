@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button, Row, Col } from "antd";
 import TypeModal, { Info } from "@/components/modal/type";
-import { getPower } from "@/api/power";
+import { getPower } from "@/api";
 import MyTable from "@/components/table";
 import "./index.less";
 import { MapKey, MenuList, PowerList } from "@/types"

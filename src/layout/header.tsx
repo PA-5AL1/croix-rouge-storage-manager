@@ -1,5 +1,5 @@
 import { Layout, Menu, Dropdown } from "antd";
-import logo from "@/assets/images/red.png";
+import logo from "@/assets/images/logo.svg";
 import MyIcon from "@/components/icon/";
 import { clearLocalDatas, USER_INFO, TOKEN, MENU } from "@/utils";
 import { useCallback } from "react";
@@ -38,7 +38,7 @@ export default function LayoutHeader({ children }: LayoutHeaderProps) {
     <Header className="header">
       <div className="logo">
         <img src={logo} alt="logo"></img>
-        <span>Croix-Rouge française</span>
+        <span>Le croix-rouge</span>
       </div>
       {children}
       <div className="right">
@@ -47,7 +47,7 @@ export default function LayoutHeader({ children }: LayoutHeaderProps) {
           getPopupContainer={getPopupContainer}
           overlay={<RightMenu logout={logout} />}
         >
-          <div> <MyIcon type="" />{userInfo && userInfo.username}</div>
+          <div>administrateur：{userInfo && userInfo.username}</div>
         </Dropdown>
       </div>
     </Header>

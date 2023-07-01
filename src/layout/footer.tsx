@@ -6,22 +6,24 @@ export default function BottomFooter() {
     <Footer className="footer">
       <p>
         <a
-          href="https://azhengpersonalblog.top/doc-react-ant-admin"
+          href=""
           target="_blank"
           rel="noreferrer"
         >
+
         </a>
       </p>
       <p>
         <a
-          href="https://qm.qq.com/cgi-bin/qm/qr?k=Wo_kXUOA-mTBviZ6gF4H912AKdE5vTML&jump_from=webapi"
+          href=""
           target="_blank"
           rel="noreferrer"
         >
+          Le croix-rouge
         </a>
       </p>
       <p></p>
-      <p></p>
+      <p>Le croix-rouge ©2021 </p>
     </Footer>
   );
 }
