@@ -4,7 +4,7 @@ import MyTable from "@/components/table";
 import { MapKey, MenuList, PowerList } from "@/types";
 import { Button, Col, Row } from "antd";
 import { useEffect, useState } from "react";
-import "./index.less";
+import "./power.less";
 
 function formatMenuKey(list: MenuList) {
   return list.map((item) => {

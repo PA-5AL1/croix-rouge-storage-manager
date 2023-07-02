@@ -8,7 +8,7 @@ import { setLayoutMode, setCompVisible as util_setCompVisible } from "@/utils";
 import { Button, Drawer, Radio, Row, message } from "antd";
 import { useCallback, useState } from "react";
 import MyIcon from "../icon";
-import "./index.less";
+import "./layout-set.less";
 
 
 const modes: LayoutModes = [

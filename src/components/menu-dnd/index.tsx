@@ -6,7 +6,7 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { Link, useHistory } from "react-router-dom";
 import ContextMenu from "../contextMenu";
-import "./index.less";
+import "./menu-dnd.less";
 // 重新记录数组顺序
 const reorder = (list: OpenedMenu[], startIndex: number, endIndex: number) => {
   const result = Array.from(list);

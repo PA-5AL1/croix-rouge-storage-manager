@@ -6,7 +6,7 @@ import { getLocalUser, saveToken, saveUser } from "@/utils";
 import { Button, Checkbox, Form, Input, message } from "antd";
 import { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
-import "./index.less";
+import "./login.less";
 
 
 

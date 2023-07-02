@@ -1,7 +1,7 @@
 import MyIcon from "@/components/icon";
 import { Col, Input, Row } from "antd";
 import { useState } from "react";
-import "./index.less";
+import "./icons.less";
 
 interface IconItem {
   icon_id: string,

@@ -1,6 +1,6 @@
 import { Pagination, Row } from "antd";
 import { useEffect, useState } from "react";
-import "./index.less";
+import "./pagination.less";
 const pageSizeOptions = ["10", "20", "50", "100"];
 
 export type PageInfo = { page: number, pagesize?: number | string }

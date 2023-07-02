@@ -10,7 +10,7 @@ import {
   Select,
 } from "antd";
 import { useState } from "react";
-import "./index.less";
+import "./form.less";
 const { Option } = Select;
 const residences = [
   {

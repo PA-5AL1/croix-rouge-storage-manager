@@ -5,7 +5,7 @@ import MyTable from "@/components/table";
 import { MapKey, VisitData } from "@/types";
 import { Card, Col, Progress, Row } from "antd";
 import { useEffect, useState } from "react";
-import "./index.less";
+import "./statistics.less";
 
 const getOpt = () => ({
   xAxis: {

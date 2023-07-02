@@ -5,7 +5,7 @@ import MyTable from "@/components/table";
 import { MapKey, MenuList } from "@/types";
 import { Button, Popconfirm, Row, message } from "antd";
 import { useEffect, useState } from "react";
-import "./index.less";
+import "./power.less";
 
 
 export type ModalType = "add" | "addChild" | "edit"

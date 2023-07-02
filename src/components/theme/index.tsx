@@ -3,7 +3,7 @@ import MyIcon from "@/components/icon";
 import { getKey, rmKey, setKey } from "@/utils";
 import { Button, Col, Drawer, Radio, Row, message, notification } from "antd";
 import { useCallback, useEffect, useState } from "react";
-import "./index.less";
+import "./theme.less";
 
 interface ThemeData {
   label: string

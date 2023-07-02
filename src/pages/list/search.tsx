@@ -13,7 +13,7 @@ import {
   message,
 } from "antd";
 import { useState } from "react";
-import "./index.less";
+import "./card.less";
 
 export default function SearchPage() {
   const [form] = Form.useForm();

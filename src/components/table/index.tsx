@@ -18,7 +18,7 @@ import {
   SortableHandle,
 } from "react-sortable-hoc";
 import MyIcon from "../icon";
-import "./index.less";
+import "./table.less";
 import { Column, Columns, MyTableProps, renderArugs } from "./types";
 
 const DragHandle = SortableHandle(() => (

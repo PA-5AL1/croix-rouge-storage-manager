@@ -5,7 +5,7 @@ import { ModalType, SelectInfo } from "@/pages/power/menu";
 import { MenuItem, MenuList } from "@/types";
 import { FormInstance, Modal, Select, message } from "antd";
 import { ReactNode, useEffect, useState } from "react";
-import "./index.less";
+import "./menu.less";
 interface IconItem {
   icon_id: string,
   name: string,

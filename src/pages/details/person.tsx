@@ -1,7 +1,7 @@
 import MyIcon from "@/components/icon";
 import { Avatar, Card, Col, Input, List, Row, Space, Tabs, Tag } from "antd";
 import { ReactNode, useState } from "react";
-import "./index.less";
+import "./person.less";
 
 const { TabPane } = Tabs;
 const { Meta } = Card;

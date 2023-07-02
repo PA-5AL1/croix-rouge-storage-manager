@@ -5,7 +5,7 @@ import MyTable from "@/components/table";
 import { MapKey, ResponseUserInfo } from "@/types";
 import { Button, Col, Row } from "antd";
 import { useState } from "react";
-import "./index.less";
+import "./power.less";
 
 export default function User() {
   const [tableData, setData] = useState<ResponseUserInfo[]>([]);

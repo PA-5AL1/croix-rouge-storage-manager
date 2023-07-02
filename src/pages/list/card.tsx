@@ -1,7 +1,7 @@
 import MyIcon from "@/components/icon";
 import { Avatar, Card, Col, Form, Input, Modal, Row, Typography } from "antd";
 import { useState } from "react";
-import "./index.less";
+import "./card.less";
 
 const list = [
   {
