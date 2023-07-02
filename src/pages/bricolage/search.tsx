@@ -10,24 +10,24 @@ import {
   message,
 } from "antd";
 import MyPagination, { PageInfo } from "@/components/pagination";
-import { getMsg, addMsg } from "@/api";
 import MyTable from "@/components/table";
 import "./index.less";
-import { MessageList, MapKey } from "@/types"
+import {BricolageList, MapKey,} from "@/types"
+import {addBricolage, getBricolage,} from "@/api/stock";
 
 export default function SearchPage() {
   const [form] = Form.useForm();
   const [searchForm] = Form.useForm();
   const [pageData, setPageData] = useState<PageInfo>({ page: 1 });
-  const [tableData, setData] = useState<MessageList>([]);
+  const [tableData, setData] = useState<BricolageList>([]);
   const [tableCol, setCol] = useState<MapKey>([]);
   const [load, setLoad] = useState(true);
   const [total, setTotal] = useState(0);
   const [showModal, setShow] = useState(false);
 
-  // 获取列表
+  // get list
   const getDataList = (data: PageInfo) => {
-    getMsg(data).then((res) => {
+    getBricolage(data).then((res) => {
       const { data, status } = res;
       if (status === 0 && data) {
         let { list, total, mapKey } = data;
@@ -46,10 +46,10 @@ export default function SearchPage() {
     });
   };
 
-  // 添加列表
+  // add list
   const addList = () => {
     form.validateFields().then((values) => {
-      addMsg(values).then((res) => {
+      addBricolage(values).then((res) => {
         if (res.status === 0) {
           form.resetFields();
           message.success(res.msg);
@@ -60,14 +60,14 @@ export default function SearchPage() {
     });
   };
 
-  // 顶部搜索
+  // top search
   const search = () => {
     let data = searchForm.getFieldsValue();
     setPageData({ page: 1 })
     getDataList(data);
   };
 
-  // 页码改版
+  // page change
   const pageChange = (pageData: PageInfo) => {
     let data = searchForm.getFieldsValue();
     getDataList({ ...pageData, ...data });
@@ -177,5 +177,5 @@ export default function SearchPage() {
   );
 }
 SearchPage.route = {
-  [MENU_PATH]: "/list/search",
+  [MENU_PATH]: "/list/logistique",
 };

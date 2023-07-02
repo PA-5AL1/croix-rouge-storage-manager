@@ -11,6 +11,9 @@ const addMsg = (data: any) => request.post("/addmessage", data) as Promise<Respo
 const getMsg = (data: any) => request.get("/getmessage", data) as Promise<MessageAPi>;
 
 
+
+
+
 const getPower = () => request.get("/getpower") as Promise<PowerApi>;
 
 

@@ -1,6 +1,113 @@
 import { UserInfo } from "./user"
 import { MenuItem, MenuList } from "./menu"
+
 export type MessageList = MessageItem[]
+export type SecourismeList = SecourismeItem[]
+export type HygieneList = HygieneItem[]
+export type LogistiqueList = LogistiqueItem[]
+export type BricolageList = BricolageItem[]
+export type UniformeList = UniformeItem[]
+export type FormationList = FormationItem[]
+
+type SecourismeItem = {
+  add_time: string
+  creator: string
+  description: string
+  m_id: number
+  name: string
+}
+
+export interface SecourismeAPi extends ResponseData {
+  data?: {
+    total: number
+    mapKey: MapKey
+    list: SecourismeList
+  }
+}
+
+
+type HygieneItem = {
+  add_time: string
+  creator: string
+  description: string
+  m_id: number
+  name: string
+}
+
+export interface HygieneAPi extends ResponseData {
+  data?: {
+    total: number
+    mapKey: MapKey
+    list: HygieneList
+  }
+}
+
+type LogistiqueItem = {
+  add_time: string
+  creator: string
+  description: string
+  m_id: number
+  name: string
+}
+
+export interface LogistiqueAPi extends ResponseData {
+  data?: {
+    total: number
+    mapKey: MapKey
+    list: LogistiqueList
+  }
+}
+
+type BricolageItem = {
+  add_time: string
+  creator: string
+  description: string
+  m_id: number
+  name: string
+}
+
+export interface BricolageAPi extends ResponseData {
+  data?: {
+    total: number
+    mapKey: MapKey
+    list: BricolageList
+  }
+}
+
+type UniformeItem = {
+  add_time: string
+  creator: string
+  description: string
+  m_id: number
+  name: string
+}
+
+export interface UniformeAPi extends ResponseData {
+  data?: {
+    total: number
+    mapKey: MapKey
+    list: UniformeList
+  }
+}
+
+type FormationItem = {
+  add_time: string
+  creator: string
+  description: string
+  m_id: number
+  name: string
+}
+
+export interface FormationAPi extends ResponseData {
+  data?: {
+    total: number
+    mapKey: MapKey
+    list: FormationList
+  }
+}
+
+
+
 type MessageItem = {
   add_time: string
   creator: string
