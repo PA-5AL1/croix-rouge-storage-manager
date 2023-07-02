@@ -10,7 +10,7 @@ const loaddingCom = (
       minHeight: 20,
       fontSize: 14,
     }}
-    tip="组件加载中...."
+    tip="chargement des composants...."
   />
 );
 

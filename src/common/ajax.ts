@@ -2,53 +2,53 @@ import axios, { AxiosResponse, AxiosError } from "axios";
 import { message, notification } from "antd";
 import { getToken, clearLocalDatas, USER_INFO, TOKEN, MENU } from "@/utils";
 import qs from "qs"
-// 请求地址
+// request address
 const BASE_URL = process.env.REACT_APP_API_BASEURL || "/api/react-ant-admin";
 
 
-// 错误信息
+// error message
 const codeMessage: { [key: number]: string } = {
-  200: "服务器成功返回请求的数据。",
-  201: "新建或修改数据成功。",
-  202: "一个请求已经进入后台排队（异步任务）。",
-  204: "删除数据成功。",
-  400: "发出的请求有错误，服务器没有进行新建或修改数据的操作。",
-  401: "用户没有权限（令牌、用户名、密码错误）。",
-  403: "用户得到授权，但是访问是被禁止的。",
-  404: "发出的请求针对的是不存在的记录，服务器没有进行操作。",
-  406: "请求的格式不可得。",
-  410: "请求的资源被永久删除，且不会再得到的。",
-  422: "当创建一个对象时，发生一个验证错误。",
-  500: "服务器发生错误，请检查服务器。",
-  502: "网关错误。",
-  503: "服务不可用，服务器暂时过载或维护。",
-  504: "网关超时。",
+  200: "The server successfully returned the requested data.",
+  201: "The data was created or modified successfully.",
+  202: "A request has been queued in the background (asynchronous task).",
+  204: "The data was deleted successfully.",
+  400: "The request sent has an error, and the server did not create or modify any data.",
+  401: "The user is unauthorized (token, username, or password is incorrect).",
+  403: "The user is authenticated but forbidden to access.",
+  404: "The request was made for a record that does not exist, and the server did not perform any operation.",
+  406: "The requested format is not available.",
+  410: "The requested resource has been permanently deleted and will no longer be available.",
+  422: "An error occurred when creating an object due to validation errors.",
+  500: "The server encountered an error, please check the server.",
+  502: "Bad gateway error.",
+  503: "The service is unavailable, the server is temporarily overloaded or undergoing maintenance.",
+  504: "Gateway timeout error."
 };
 
-// 请求配置文件
+// request config files
 const config = {
-  // `baseURL` 将自动加在 `url` 前面，除非 `url` 是一个绝对 URL。
-  // 它可以通过设置一个 `baseURL` 便于为 axios 实例的方法传递相对 URL
+  // `baseURL` will be automatically added before `url`, unless `url` is an absolute URL.
+// It can be convenient to set a `baseURL` to pass relative URLs for methods of the axios instance.
   baseURL: BASE_URL,
 
   timeout: 1000 * 15,
 
-  // `withCredentials` 表示跨域请求时是否需要使用凭证
+  // `withCredentials` Indicates whether credentials are required for cross-origin requests
   withCredentials: false,
 
-  // `maxRedirects` 定义在 node.js 中 follow 的最大重定向数目
-  // 如果设置为0，将不会 follow 任何重定向
+// `maxRedirects` defines the maximum number of redirects to follow in node.js
+  // If set to 0, no redirects will be followed
   maxRedirects: 3,
   headers: {
     "Content-Type": " application/json;charset=UTF-8",
   },
 };
 
-// 创建ajax实例
+//  create ajax instance
 const instance = axios.create(config);
 instance.interceptors.request.use(
   function (config) {
-    // 在发送请求之前做些什么
+    // before send request
     let token = getToken();
     if (token) {
       config.headers["authorization"] = token;
@@ -56,7 +56,7 @@ instance.interceptors.request.use(
     return config;
   },
   function (error) {
-    // 对请求错误做些什么
+    // do while request error
     return Promise.reject(error);
   }
 );
@@ -77,7 +77,7 @@ instance.interceptors.response.use(
       const errorText = codeMessage[response.status] || response.statusText;
       const { status, config } = response;
       notification.error({
-        message: `请求错误 ${status}: ${config.url}`,
+        message: `request error ${status}: ${config.url}`,
         description: errorText,
       });
       if (response.status === 401 || response.status === 403) {
@@ -88,11 +88,11 @@ instance.interceptors.response.use(
       }
     } else if (!response) {
       notification.error({
-        description: "客户端异常或网络问题，请清除缓存！",
-        message: "状态异常",
+        description: "Client exception or network problem, please clear the cache",
+        message: "Abnormal state",
       });
     }
-    // 对响应错误做点什么
+    //
     return Promise.reject(error);
   }
 );

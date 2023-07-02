@@ -7,12 +7,12 @@ import { OpenedMenu } from "@/types"
 import { message } from "antd";
 import ContextMenu from "../contextMenu";
 import { useDispatchMenu, useStateCurrentPath, useStateOpenedMenu } from "@/store/hooks";
-// 重新记录数组顺序
+// Re-record array order
 const reorder = (list: OpenedMenu[], startIndex: number, endIndex: number) => {
   const result = Array.from(list);
-  //删除并记录 删除元素1
+  //delete and record, delete element 1
   const [removed] = result.splice(startIndex, 1);
-  //将原来的元素添加进数组
+  //Add the original element to the array
   result.splice(endIndex, 0, removed);
   return result;
 };
@@ -29,7 +29,7 @@ export default function MenuDnd() {
   const currentPath = useStateCurrentPath()
   const { stateFilterOpenMenuKey: filterOpenMenu } = useDispatchMenu()
 
-  // 根据 选中的菜单 往里添加拖拽选项
+  // Add drag and drop options according to the selected menu
   useEffect(() => {
     if (data.length !== openedMenu.length) {
       let old = [...data];
@@ -43,17 +43,17 @@ export default function MenuDnd() {
     }
   }, [openedMenu, data]);
 
-  //拖拽结束
+  // drag end
   const onDragEnd = useCallback((result) => {
     if (!result.destination) {
       return;
     }
-    //获取拖拽后的数据 重新赋值
+    // Get the data after dragging and reassign
     const newData = reorder(data, result.source.index, result.destination.index);
     setData(newData);
   }, [data]);
 
-  // 关闭当前顶部菜单
+  // close current top menu
   const closeCurrent = useCallback((item) => {
     const newData = data.filter((i) => i.path !== item.path);
     const next = newData[newData.length - 1];
@@ -69,16 +69,16 @@ export default function MenuDnd() {
     }
   }, [data, currentPath, filterOpenMenu, history]);
 
-  // 关闭右侧
+  // close right
   const closeRight = useCallback(() => {
     if (!currentItem) {
       return
     }
     const findIndex = data.findIndex(item => item.path === currentItem.path)
     console.log(findIndex);
-    // 如果在最后一个选择关闭右侧
+    // If on the last selection close the right
     if (findIndex === data.length - 1) {
-      return message.warn("右侧无关闭项")
+      return message.warn("No closing items on the right")
     }
     const keys = data.slice(findIndex + 1).map(i => i.path)
     console.log(keys);
@@ -87,16 +87,16 @@ export default function MenuDnd() {
 
   }, [currentItem, data, filterOpenMenu, history])
 
-  // 关闭左侧
+  // close left
   const closeLeft = useCallback(() => {
     if (!currentItem) {
       return
     }
     const findIndex = data.findIndex(item => item.path === currentItem.path)
     console.log(findIndex);
-    // 如果在最后一个选择关闭左侧
+    //
     if (findIndex === 0) {
-      return message.warn("左侧无关闭项")
+      return message.warn("No closing items on the left")
     }
     const keys = data.slice(0, findIndex).map(i => i.path)
     console.log(keys);
@@ -104,7 +104,7 @@ export default function MenuDnd() {
     history.replace(currentItem.path)
   }, [currentItem, data, filterOpenMenu, history])
 
-  // 关闭左侧
+  // close left
   const closeAll = useCallback(() => {
     const keys = data.map(i => i.path)
     console.log(keys);
@@ -112,7 +112,7 @@ export default function MenuDnd() {
     history.replace("/")
   }, [data, filterOpenMenu, history])
 
-  // 右键打开弹窗菜单
+  // Right click to open the popup menu
   const onContextMenu = useCallback((e, item) => {
     const { clientX: x, clientY: y } = e
     e.stopPropagation()
@@ -123,7 +123,7 @@ export default function MenuDnd() {
     return false
   }, [])
 
-  // 右键选择关闭
+  // Right click and select close
   const onContextMenuClose = useCallback((type) => {
     switch (type) {
       case "current":
@@ -143,7 +143,7 @@ export default function MenuDnd() {
     }
   }, [closeCurrent, currentItem, closeRight, closeLeft, closeAll])
 
-  // 拖拽列表
+  // drag list
   const DraggableList = useMemo(() => {
     if (data.length) {
       return data.map((item, index) => {
@@ -155,7 +155,7 @@ export default function MenuDnd() {
         }
         return <Draggable index={index} key={item.path} draggableId={item.path}>
           {(provided) => (
-            //在这里写你的拖拽组件的样式 dom 等等...
+            // The style of the drag component
             <Link
               className={clsname}
               ref={provided.innerRef}
@@ -181,18 +181,18 @@ export default function MenuDnd() {
 
   return (<>
     <DragDropContext onDragEnd={onDragEnd}>
-      {/* direction代表拖拽方向  默认垂直方向  水平方向:horizontal */}
+      {/* direction drag direction  Default Vertical Orientation, Horizontal Orientation:horizontal */}
       <Droppable droppableId="droppable" direction="horizontal">
         {(provided) => (
-          //这里是拖拽容器 在这里设置容器的宽高等等...
+          // Here is the drag container, set the width and height of the container here, etc...
           <div
             {...provided.droppableProps}
             ref={provided.innerRef}
             className="dnd-body hide-scrollbar"
           >
-            {/* 这里放置所需要拖拽的组件,必须要被 Draggable 包裹 */}
+            {/* The components that need to be dragged are placed here, and they must be wrapped by Draggable */}
             {DraggableList}
-            {/* 这个不能少 */}
+            {/* can't delete this */}
             {provided.placeholder}
           </div>
         )}

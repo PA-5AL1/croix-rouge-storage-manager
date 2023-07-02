@@ -48,27 +48,27 @@ export default function ContextMenu({ isCurrent, visible, x, y, setVisible, onCl
     const newStyle = { left, top, visibility }
     setStyle(newStyle)
   }, [x, y, visibility, ref])
-  // 关闭 菜单
+  // close menu
   const closeMenu = useCallback(() => {
     if (visibility === "visible") {
-      console.log("关闭弹窗");
+      console.log("close the popup");
       setVisible(false)
     }
     return false
   }, [setVisible, visibility])
 
-  // 关闭所有选项
+  // close all
   const closeAll = useCallback((e) => {
     e.stopPropagation()
-    console.log("关闭全部");
+    console.log("close all");
     onClose("all")
     closeMenu()
   }, [closeMenu, onClose])
 
-  // 关闭右侧 选项
+  // close right
   const closeRight = useCallback((e) => {
     e.stopPropagation()
-    console.log("右");
+    console.log("droite");
     onClose("right")
     closeMenu()
   }, [closeMenu, onClose])
@@ -76,7 +76,7 @@ export default function ContextMenu({ isCurrent, visible, x, y, setVisible, onCl
   // 关闭左侧 选项
   const closeLeft = useCallback((e) => {
     e.stopPropagation()
-    console.log("左");
+    console.log("gauche");
     onClose("left")
     closeMenu()
   }, [closeMenu, onClose])
@@ -84,7 +84,7 @@ export default function ContextMenu({ isCurrent, visible, x, y, setVisible, onCl
   // 关闭当前选项
   const closeCurrent = useCallback((e) => {
     e.stopPropagation()
-    console.log("当前");
+    console.log("actuel");
     onClose("current")
     closeMenu()
   }, [closeMenu, onClose])
@@ -96,11 +96,11 @@ export default function ContextMenu({ isCurrent, visible, x, y, setVisible, onCl
     className="centext-menu"
   >
     <ul style={style} ref={ref}>
-      <li onMouseUp={closeAll}>关闭所有</li>
-      <li onMouseUp={closeRight}>关闭右侧</li>
-      <li onMouseUp={closeLeft}>关闭左侧</li>
+      <li onMouseUp={closeAll}>ferme tout</li>
+      <li onMouseUp={closeRight}>ferme droite</li>
+      <li onMouseUp={closeLeft}>ferme gauche</li>
       {
-        isCurrent && <li onMouseUp={closeCurrent}>关闭当前</li>
+        isCurrent && <li onMouseUp={closeCurrent}>ferme actuel</li>
       }
     </ul>
   </div>

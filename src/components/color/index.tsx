@@ -33,19 +33,19 @@ function Color({
 }: ColorProps) {
   const [changeColor, setColor] = useState(color);
 
-  // 变化重置
+  //
   useEffect(() => {
     if (color) {
       setColor(color);
     }
   }, [color]);
 
-  // 同步改变
+  //
   const onChange = useCallback((v) => {
     setColor(v);
   }, []);
 
-  // 确认
+  // confirm
   const onChangeComplete = useCallback(() => {
     onSureChange(changeColor, colorKey);
   }, [changeColor, onSureChange, colorKey]);
@@ -61,10 +61,10 @@ function Color({
       </Col>
       <Col>
         <Button type="primary" size="small" onClick={onChangeComplete}>
-          确认
+          confirmer
         </Button>
         <Button size="small" onClick={onClose}>
-          取消
+          annuler
         </Button>
       </Col>
     </Row>
