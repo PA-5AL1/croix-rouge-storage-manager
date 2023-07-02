@@ -11,7 +11,7 @@ const RouterBasename = process.env.REACT_APP_ROUTERBASE || "/"
 
 
 export default function AppRouter() {
-  const [loading, setLoad] = useState(true);
+  const [loading, setLoad] = useState(false);
   const { stateSetUser } = useDispatchUser()
   const userInfo = useStateUserInfo()
 
