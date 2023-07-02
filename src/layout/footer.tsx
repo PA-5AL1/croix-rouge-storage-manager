@@ -6,7 +6,7 @@ export default function BottomFooter() {
     <Footer className="footer">
       <p>
         <a
-          href=""
+          href="#"
           target="_blank"
           rel="noreferrer"
         >
@@ -15,7 +15,7 @@ export default function BottomFooter() {
       </p>
       <p>
         <a
-          href=""
+          href="#"
           target="_blank"
           rel="noreferrer"
         >
