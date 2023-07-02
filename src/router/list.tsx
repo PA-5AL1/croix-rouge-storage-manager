@@ -1,7 +1,8 @@
-import auto from "./auto";
+
 import loadable, { LoadableComponent } from "@loadable/component";
 import { Redirect } from "react-router-dom";
 import React from "react";
+import auto from "./auto";
 const Error = loadable(() => import("@pages/err"));
 
 export interface RouterInfo {
