@@ -69,13 +69,13 @@ export default function SetTheme() {
   const [colorShow, setColorShow] = useState(false);
   const [colorList, setColor] = useState(process.env.varColors);
   const [themeStyle, setStyle] = useState(THEME_NAME || Themes[0].value);
-  // 关闭色板
+  // close color
   const onCloseColor = useCallback(() => {
     setInfo(initSelectInfo);
     setColorShow(false);
   }, []);
 
-  // 设置主题
+  // set theme
   const setTheme = useCallback(
     (obj, list, tip = true) => {
       window.less
@@ -91,7 +91,7 @@ export default function SetTheme() {
     },
     [onCloseColor]
   );
-  // 初始化主题
+  // initialize theme
   useEffect(() => {
     if (THEME && THEME_NAME) {
       let newColorList = [...colorList.map((i) => ({ ...i }))];
@@ -105,17 +105,17 @@ export default function SetTheme() {
     // eslint-disable-next-line
   }, []);
 
-  // 关闭抽屉
+  // close drawer
   const onClose = useCallback(() => {
     setVisible(false);
   }, []);
 
-  // 显示抽屉
+  // show drawer
   const showDrawer = useCallback(() => {
     setVisible(true);
   }, []);
 
-  // 自定义颜色选中
+  // select personalized color
   const onChangeComplete = useCallback(
     (v, k: string) => {
       let newColorList = [...colorList.map((i) => ({ ...i }))];
@@ -133,7 +133,7 @@ export default function SetTheme() {
     [colorList, setTheme, themeStyle]
   );
 
-  // 选中
+  // select
   const onSelect = useCallback((e, info) => {
     const height = window.innerHeight;
     const width = window.innerWidth;
@@ -148,7 +148,7 @@ export default function SetTheme() {
     setColorShow(true);
   }, []);
 
-  // 保存本地
+  // save local
   const saveLocalTheme = useCallback(() => {
     let themeObj = { ...Themes.find((i) => i.value === themeStyle)?.colorList };
     themeObj = colorList.reduce((a, c) => {
@@ -160,7 +160,7 @@ export default function SetTheme() {
     message.success("主题成功保存到本地！");
   }, [themeStyle, colorList]);
 
-  // 选择主题
+  // chose theme
   const themeChange = useCallback(
     (e) => {
       const { value } = e.target;
@@ -173,13 +173,13 @@ export default function SetTheme() {
     },
     [colorList, setTheme]
   );
-  // 删除本地缓存主题
+  // delete local theme
   const delTheme = () => {
     if (!getKey(true, THEMENAMEKEY)) {
       return notification.error({
         type: "error",
-        description: "未找到本地有配置本地主题，请保存后再点击删除！",
-        message: "删除失败",
+        description: "Aucun thème local n'a été trouvé, veuillez l'enregistrer et cliquer sur supprimer !",
+        message: "impossible de supprimer",
       });
     }
     let initColorObj = { ...Themes[0].colorList };
@@ -189,14 +189,14 @@ export default function SetTheme() {
     window.less
       .modifyVars(initColorObj)
       .then((res) => {
-        message.success("修改主题色成功");
+        message.success("Modifier la couleur du thème avec succès");
         rmKey(true, THEMDATAKEY);
         rmKey(true, THEMENAMEKEY);
         setColor(process.env.varColors);
         setStyle(Themes[0].value);
       })
       .catch((err) => {
-        message.error("修改失败");
+        message.error("échec de modifier");
       });
   };
   return (
@@ -206,7 +206,7 @@ export default function SetTheme() {
       </div>
       <Drawer
         className="drawer"
-        title="设置主题颜色"
+        title="Définir la couleur du thème"
         placement="right"
         closable={false}
         onClose={onClose}
@@ -220,7 +220,7 @@ export default function SetTheme() {
           optionType="button"
           buttonStyle="solid"
         />
-        <Row className="color-row primary">自定义Less变量:</Row>
+        <Row className="color-row primary">Variables personnalisées Less:</Row>
         {colorList.map((i) => (
           <Row className="color-row" justify="space-between" key={i.key}>
             <Col style={{ color: i.value }}>{i.title}:</Col>
@@ -237,10 +237,10 @@ export default function SetTheme() {
 
         <Row justify="center">
           <Button type="primary" onClick={saveLocalTheme}>
-            保存本地
+            enregistrer localement
           </Button>
           <Button type="ghost" className="del" danger onClick={delTheme}>
-            删除本地颜色主题配置
+            Supprimer la configuration du thème de couleur local
           </Button>
         </Row>
         <Color

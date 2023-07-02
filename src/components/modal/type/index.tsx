@@ -129,7 +129,9 @@ export default function TypeModal({ info, isShow, onCancel, onOk, menuList }: Mo
       onOk={submit}
     >
       <MyForm handleInstance={setForm} items={initFormItems} />
-      <h3 style={ColorStyle}>选中子菜单未选中父菜单的将不会显示</h3>
+      <h3 style={ColorStyle}>
+        Les sous-menus sélectionnés et le menu parent non sélectionné ne seront pas affichés
+      </h3>
       <Tree
         treeData={menuList}
         checkable

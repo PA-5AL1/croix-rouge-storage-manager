@@ -42,7 +42,7 @@ const FlexBox = ({ children }: { children: JSX.Element }) => {
 }
 const SliderContent = ({ children }: { children: JSX.Element }) => {
   const [collapsed, setCollapsed] = useState(false);
-  // 折叠菜单
+  //
   const toggleCollapsed = (e: any) => {
     setCollapsed(!collapsed);
     stopPropagation(e);
@@ -66,9 +66,9 @@ export default function SiderMenu() {
   const selectedKeys = useStateSelectMenuKey()
   const layout = useStateLayout()
   const menuList = useStateMenuList()
-  // 菜单组折叠  
+  //
   const { stateSetOpenMenuKey: onOpenChange } = useDispatchMenu()
-  // 菜单选项
+  //
   const menuComponent = useMemo(() => menuList.map(m => renderMenu(m, '')), [menuList]);
 
   const WrapContainer = useMemo(() => layout === layoutTypes.SINGLE_COLUMN ? FlexBox : SliderContent, [layout])

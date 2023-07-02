@@ -29,63 +29,63 @@ const SortableBody = SortableContainer((props: any) => <tbody  {...props} />);
 
 const setColTitle: Columns = [
   {
-    title: "列排序",
+    title: "tri des colonnes",
     dataIndex: "sort",
     className: "drag-visible",
     render: () => <DragHandle />,
   },
   {
-    title: "列名",
+    title: "nom de colonne",
     dataIndex: "title",
     className: "drag-visible",
     align: "center",
   },
   {
-    title: "宽度",
+    title: "largeur",
     dataIndex: "width",
     type: "inputNumber",
   },
   {
-    title: "固定",
+    title: "fixé",
     dataIndex: "fixed",
     width: 120,
     type: "switch",
     align: "center",
     range: [
-      { v: false, t: "关" },
-      { v: "left", t: "左固定" },
-      { v: "right", t: "右固定" },
+      { v: false, t: "ferme" },
+      { v: "left", t: "gauche fixe" },
+      { v: "right", t: "droite fixe" },
     ],
   },
   {
-    title: "超出宽度隐藏",
+    title: "masquer au-delà de la largeur",
     dataIndex: "ellipsis",
     type: "switch",
     align: "center",
     range: [
-      { v: false, t: "否" },
-      { v: true, t: "是" },
+      { v: false, t: "non" },
+      { v: true, t: "oui" },
     ],
   },
   {
-    title: "对齐",
+    title: "aligner",
     dataIndex: "align",
     type: "switch",
     align: "center",
     range: [
-      { v: "left", t: "左" },
-      { v: "center", t: "居中" },
-      { v: "right", t: "右" },
+      { v: "left", t: "gauche" },
+      { v: "center", t: "au centre" },
+      { v: "right", t: "droite" },
     ],
   },
   {
-    title: "隐藏",
+    title: "cacher",
     dataIndex: "hidden",
     type: "switch",
     align: "center",
     range: [
-      { v: "hidden", t: "隐藏" },
-      { v: "auto", t: "显示" },
+      { v: "hidden", t: "cacher" },
+      { v: "auto", t: "montrer" },
     ],
   },
 ];
@@ -127,7 +127,7 @@ function UseTable(columns: Columns, saveKey: MyTableProps["saveKey"]) {
         ? data.every((i) => i.dataIndex === columnInfo[i.dataIndex]?.dataIndex)
         : false;
       if (isSameKey) {
-        // 如果当前表格头数据 与 缓存设置的数组长度一样，就优先使用缓存的
+        // If the current table header data is the same as the array length set by the cache, the cached one will be used first
         const merge = data.map((item) => ({
           ...defaultCol,
           ...columnInfo[item.dataIndex],
@@ -140,7 +140,7 @@ function UseTable(columns: Columns, saveKey: MyTableProps["saveKey"]) {
     } else if (!data && columns && columns.length !== col.length) {
       initDefaultCol()
     }
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
   }, [saveKey, columns]);
 
   useEffect(() => {
@@ -192,7 +192,7 @@ function UseTable(columns: Columns, saveKey: MyTableProps["saveKey"]) {
 
   function inuputRender(dataIndex: string, text: number, col: Column) {
     return (
-      <Tooltip title="失去焦点触发" arrowPointAtCenter>
+      <Tooltip title="déclencheur de perte de mise au point" arrowPointAtCenter>
         <InputNumber
           min={0}
           max={800}
@@ -225,27 +225,27 @@ function UseTable(columns: Columns, saveKey: MyTableProps["saveKey"]) {
     if (!saveKey) {
       return notification.error({
         type: "error",
-        description: "你未定义表格的savaKey属性，请定义后保存",
-        message: "保存失败",
+        description: "Vous n'avez pas défini l'attribut savaKey de la table, veuillez le définir et l'enregistrer",
+        message: "échec de la sauvegarde",
       });
     }
     setKey(true, saveKey, col);
-    message.success("保存设置成功!");
+    message.success("Enregistrer les paramètres avec succès");
   }
   // 删除 保存的表格显示
   const delTbSet = () => {
     if (!saveKey) {
       return notification.error({
         type: "error",
-        description: "你未定义表格的savaKey属性，请定义后在点击删除",
-        message: "删除失败",
+        description: "Vous n'avez pas défini l'attribut savaKey de la table, veuillez le définir et cliquer pour supprimer",
+        message: "échec de supprimer",
       });
     }
     rmKey(true, saveKey);
     initDefaultCol();
-    message.success("删除成功!");
+    message.success("supprimé avec succès");
   };
-  // 初始化设置表格默认格式
+  // Initialize the default format of the table
   function initDefaultCol() {
     const newCol = columns.map((c, index) => ({
       ...defaultCol,
@@ -310,7 +310,7 @@ function MyTable({
         onClose={hiddin}
         maskClosable={true}
         visible={showDrawer}
-        title="表格显示设置"
+        title="Paramètres d'affichage du tableau"
       >
         <Table
           columns={tbTitle}
@@ -326,10 +326,10 @@ function MyTable({
         />
         <Row justify="center" className="mt20">
           <Button type="primary" onClick={saveTbSet}>
-            保存此表格设置，下次打开默认启用
+            Enregistrez ce paramètre de formulaire et il sera activé par défaut la prochaine fois que vous l'ouvrirez
           </Button>
           <Button danger type="ghost" className="del" onClick={delTbSet}>
-            删除已保存的设置
+            Supprimer les paramètres enregistrés
           </Button>
         </Row>
       </Drawer>
