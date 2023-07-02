@@ -1,7 +1,7 @@
-import axios, { AxiosResponse, AxiosError } from "axios";
+import { MENU, TOKEN, USER_INFO, clearLocalDatas, getToken } from "@/utils";
 import { message, notification } from "antd";
-import { getToken, clearLocalDatas, USER_INFO, TOKEN, MENU } from "@/utils";
-import qs from "qs"
+import axios, { AxiosError, AxiosResponse } from "axios";
+import qs from "qs";
 // 请求地址
 const BASE_URL = process.env.REACT_APP_API_BASEURL || "/api/react-ant-admin";
 

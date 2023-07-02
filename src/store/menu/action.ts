@@ -1,5 +1,5 @@
+import { MenuItem, OpenedMenu } from "@/types";
 import * as ActionTypes from "./actionTypes";
-import { OpenedMenu, MenuItem } from "@/types"
 export const addOpenedMenu = (menuItem: OpenedMenu) => ({
   type: ActionTypes.ADDOPENTMENU,
   menuItem,

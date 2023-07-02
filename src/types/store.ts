@@ -1,6 +1,6 @@
-import { UserInfo } from "./user"
-import { MenuState } from "./menu"
 import { LayoutMode } from "./layout"
+import { MenuState } from "./menu"
+import { UserInfo } from "./user"
 
 
 export interface componentsVisible {

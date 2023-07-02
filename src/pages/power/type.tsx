@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { Button, Row, Col } from "antd";
-import TypeModal, { Info } from "@/components/modal/type";
 import { getPower } from "@/api";
+import TypeModal, { Info } from "@/components/modal/type";
 import MyTable from "@/components/table";
+import { MapKey, MenuList, PowerList } from "@/types";
+import { Button, Col, Row } from "antd";
+import { useEffect, useState } from "react";
 import "./index.less";
-import { MapKey, MenuList, PowerList } from "@/types"
 
 function formatMenuKey(list: MenuList) {
   return list.map((item) => {

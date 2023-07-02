@@ -1,11 +1,11 @@
-import { useCallback, useState } from "react";
-import { Form, Input, Button, Checkbox, message } from "antd";
-import { useDispatch } from "react-redux";
-import MyIcon from "@/components/icon";
-import { saveUser, getLocalUser, saveToken } from "@/utils";
-import { setUserInfoAction } from "@/store/user/action";
 import { login } from "@/api";
-import { UserInfo } from "@/types"
+import MyIcon from "@/components/icon";
+import { setUserInfoAction } from "@/store/user/action";
+import { UserInfo } from "@/types";
+import { getLocalUser, saveToken, saveUser } from "@/utils";
+import { Button, Checkbox, Form, Input, message } from "antd";
+import { useCallback, useState } from "react";
+import { useDispatch } from "react-redux";
 import "./index.less";
 
 

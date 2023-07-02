@@ -1,25 +1,25 @@
-import { useEffect, useState } from "react";
+import { getKey, rmKey, setKey } from "@/utils";
 import {
-  Table,
-  Row,
-  Drawer,
-  Radio,
-  Tooltip,
-  InputNumber,
   Button,
+  Drawer,
+  InputNumber,
+  Radio,
+  Row,
+  Table,
+  Tooltip,
   message,
   notification,
 } from "antd";
+import arrayMove from "array-move";
+import { useEffect, useState } from "react";
 import {
   SortableContainer,
   SortableElement,
   SortableHandle,
 } from "react-sortable-hoc";
 import MyIcon from "../icon";
-import arrayMove from "array-move";
-import { getKey, setKey, rmKey } from "@/utils";
 import "./index.less";
-import { MyTableProps, Columns, renderArugs, Column } from "./types"
+import { Column, Columns, MyTableProps, renderArugs } from "./types";
 
 const DragHandle = SortableHandle(() => (
   <MyIcon type="icon_mirrorlightctrl" className="drag-sort" />

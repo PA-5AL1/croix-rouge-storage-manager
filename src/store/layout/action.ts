@@ -1,5 +1,5 @@
+import { LayoutMode } from "@/types";
 import * as ActionTypes from "./actionTypes";
-import { LayoutMode } from "@/types"
 
 export const changeLayoutMode = (mode: LayoutMode): {
   type: LayoutMode;

@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { Spin } from "antd"
-import { getMenuParentKey } from "@/utils";
 import Error from "@/pages/err";
-import { useLocation } from "react-router-dom";
-import { MenuItem } from "@/types";
 import { useDispatchMenu } from "@/store/hooks";
+import { MenuItem } from "@/types";
+import { getMenuParentKey } from "@/utils";
+import { Spin } from "antd";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const scrollPage = () => {
   window.scrollTo({

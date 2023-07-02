@@ -1,7 +1,7 @@
 
 import loadable, { LoadableComponent } from "@loadable/component";
-import { Redirect } from "react-router-dom";
 import React from "react";
+import { Redirect } from "react-router-dom";
 import auto from "./auto";
 const Error = loadable(() => import("@pages/err"));
 

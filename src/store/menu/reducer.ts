@@ -1,5 +1,5 @@
+import { MenuAction, MenuState } from "@/types";
 import * as actionTypes from "./actionTypes";
-import { MenuAction, MenuState } from "@/types"
 
 
 const initGlobalState: MenuState = {

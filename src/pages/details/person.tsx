@@ -1,6 +1,6 @@
-import { ReactNode, useState } from "react";
-import { Card, Tag, Input, Tabs, Row, Col, List, Space, Avatar } from "antd";
 import MyIcon from "@/components/icon";
+import { Avatar, Card, Col, Input, List, Row, Space, Tabs, Tag } from "antd";
+import { ReactNode, useState } from "react";
 import "./index.less";
 
 const { TabPane } = Tabs;

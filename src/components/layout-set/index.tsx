@@ -1,14 +1,14 @@
+import twoImg from "@/assets/images/layout1.jpg";
+import singImg from "@/assets/images/layout2.jpg";
+import twoFlanksImg from "@/assets/images/layout3.jpg";
+import { useDispatchLayout, useDispatchVisible, useStateLayout, useStateVisible } from "@/store/hooks";
+import * as Types from "@/store/layout/actionTypes";
+import { LayoutMode, LayoutModes, State } from "@/types";
+import { setLayoutMode, setCompVisible as util_setCompVisible } from "@/utils";
+import { Button, Drawer, Radio, Row, message } from "antd";
 import { useCallback, useState } from "react";
 import MyIcon from "../icon";
-import { Button, Drawer, message, Row, Radio } from "antd";
-import * as Types from "@/store/layout/actionTypes";
-import { setLayoutMode, setCompVisible as util_setCompVisible } from "@/utils";
-import singImg from "@/assets/images/layout2.jpg";
-import twoImg from "@/assets/images/layout1.jpg";
-import twoFlanksImg from "@/assets/images/layout3.jpg";
-import { LayoutMode, State, LayoutModes } from "@/types"
 import "./index.less";
-import { useDispatchLayout, useDispatchVisible, useStateLayout, useStateVisible } from "@/store/hooks";
 
 
 const modes: LayoutModes = [

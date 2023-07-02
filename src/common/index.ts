@@ -1,6 +1,6 @@
-import { getLocalMenu, saveLocalMenu } from "../utils";
 import { getMenu } from "@/api";
-import { MenuResponse } from "@/types"
+import { MenuResponse } from "@/types";
+import { getLocalMenu, saveLocalMenu } from "../utils";
 let currentJob: Promise<MenuResponse> | null
 export function getMenus() {
   if (currentJob) {

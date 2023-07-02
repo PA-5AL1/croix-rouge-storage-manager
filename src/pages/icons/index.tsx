@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Input, Row, Col } from "antd";
 import MyIcon from "@/components/icon";
+import { Col, Input, Row } from "antd";
+import { useState } from "react";
 import "./index.less";
 
 interface IconItem {

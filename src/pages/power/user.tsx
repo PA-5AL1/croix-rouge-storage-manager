@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { Button, Row, Col } from "antd";
-import MyPagination, { PageInfo } from "@/components/pagination";
-import UserModal, { UserID } from "@/components/modal/user";
 import { getUserList } from "@/api";
-import "./index.less";
+import UserModal, { UserID } from "@/components/modal/user";
+import MyPagination, { PageInfo } from "@/components/pagination";
 import MyTable from "@/components/table";
-import { MapKey, ResponseUserInfo } from "@/types"
+import { MapKey, ResponseUserInfo } from "@/types";
+import { Button, Col, Row } from "antd";
+import { useState } from "react";
+import "./index.less";
 
 export default function User() {
   const [tableData, setData] = useState<ResponseUserInfo[]>([]);

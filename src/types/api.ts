@@ -1,5 +1,5 @@
-import { UserInfo } from "./user"
 import { MenuItem, MenuList } from "./menu"
+import { UserInfo } from "./user"
 export type MessageList = MessageItem[]
 type MessageItem = {
   add_time: string
