@@ -23,7 +23,7 @@ function useMenu() {
 
 
   const menuAction = {
-    title: "操作",
+    title: "Opération",
     dataIndex: "action",
     key: "action",
     align: "center",
@@ -31,19 +31,19 @@ function useMenu() {
       return (
         <Row>
           <Button type="link" onClick={() => openModal("edit", record)}>
-            编辑
+            modifier
           </Button>
           <Button type="link" onClick={() => openModal("addChild", record)}>
-            添加子菜单
+            ajouter un sous-menu
           </Button>
           <Popconfirm
             onConfirm={() => deleteMenu(record)}
-            okText="确认"
-            title="删除选中菜单会一同删除其下所有子菜单，确认删除？"
-            cancelText="取消"
+            okText="confirmer"
+            title="La suppression du menu sélectionné supprimera tous les sous-menus qu'il contient. Confirmer la suppression?"
+            cancelText="annuler"
           >
             <Button type="link" danger>
-              删除
+              supprimer
             </Button>
           </Popconfirm>
         </Row>
@@ -57,9 +57,9 @@ function useMenu() {
         res.mapKey.forEach((item) => {
           if (item.dataIndex === "icon") {
             item.render = (text: string | null) =>
-              text ? <MyIcon className="preview" type={text} /> : "暂未设置";
+              text ? <MyIcon className="preview" type={text} /> : "Pas encore défini";
           } else if (item.dataIndex === "keepAlive") {
-            item.render = (text: string) => (text === "true" ? "保持" : "关闭销毁");
+            item.render = (text: string) => (text === "true" ? "Garder" : "fermer détruire");
           }
         });
         setCol(res.mapKey);
@@ -117,7 +117,7 @@ export default function Menu() {
   return (
     <div className="powermenu-container">
       <Button type="primary" onClick={addMenu}>
-        新增菜单
+        ajouter menu
       </Button>
       <MyTable dataSource={menus} columns={tabCol} saveKey="MENUTABLE" />
       <MenuModal

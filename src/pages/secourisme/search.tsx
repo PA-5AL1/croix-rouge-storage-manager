@@ -144,12 +144,12 @@ export default function SearchPage() {
             <Input />
           </Form.Item>
           <Form.Item
-              label="le poids de l'article"
+              label="la quantité de l'article"
               name="weight"
               rules={[
                 {
                   required: true,
-                  message: "Veuillez entrer le poids",
+                  message: "Veuillez entrer la quantité",
                 },
               ]}
           >

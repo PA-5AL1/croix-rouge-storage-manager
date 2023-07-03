@@ -34,20 +34,20 @@ function useTypes() {
   const activeCol = {
     dataIndex: "active",
     key: "active",
-    title: "操作",
+    title: "Opération",
     align: "center",
     render: (text: any, record: any) => (
       <Button type="link" onClick={() => modalControl(record, true)}>
-        编辑
+        modifier
       </Button>
     ),
   }
   const renderTitle = () => (
     <Row justify="space-between" gutter={80}>
-      <Col style={{ lineHeight: "32px" }}>用户信息列表</Col>
+      <Col style={{ lineHeight: "32px" }}>Liste des informations utilisateur</Col>
       <Col>
         <Button type="primary" onClick={() => modalControl(null, true)}>
-          添加管理权限
+          Ajouter des autorisations administratifs
         </Button>
       </Col>
     </Row>

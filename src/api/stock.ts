@@ -2,9 +2,11 @@ import ajax from "@/common/ajax";
 import mock from "../mock/index";
 import {  ResponseData, SecourismeAPi, HygieneAPi, LogistiqueAPi, BricolageAPi, UniformeAPi, FormationAPi } from "@/types"
 
-const request = process.env.REACT_APP_MOCK === "1" ? mock : ajax;
+const request =  ajax;
 
 const addSecourisme = (data: any) => request.post("/addSecourisme", data) as Promise<ResponseData>;
+const updateSecourisme = (data: any) => request.put("/addSecourisme", data) as Promise<ResponseData>;
+const deleteSecourisme = (data: any) => request.delete("/addSecourisme", data) as Promise<ResponseData>;
 const getSecourisme = (data: any) => request.get("/getSecourisme", data) as Promise<SecourismeAPi>;
 
 const addHygiene = (data: any) => request.post("/addHygiene", data) as Promise<ResponseData>;

@@ -27,7 +27,7 @@ export default function User() {
   const activeCol = {
     dataIndex: "active",
     key: "active",
-    title: "操作",
+    title: "Opération",
     align: "center",
     render: (text: string, record: ResponseUserInfo) => (
       <Button type="link" onClick={() => showInfoModal(record.user_id, true)}>

@@ -53,7 +53,7 @@ const SliderContent = ({ children }: { children: JSX.Element }) => {
         {children}
         <div className="fold-control fixed">
           <Button onClick={toggleCollapsed}>
-            {collapsed ? "展开" : "收起"}
+            {collapsed ? "déplié" : "ranger"}
             <MyIcon type={collapsed ? "icon_next" : "icon_back"} />
           </Button>
         </div>
