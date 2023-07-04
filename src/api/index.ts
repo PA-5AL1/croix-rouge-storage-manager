@@ -7,8 +7,8 @@ const request = process.env.REACT_APP_MOCK === "1" ? mock : ajax;
 
 const login = (data: any) => request.post("/login", data) as Promise<LoginApi>;
 
-const addMsg = (data: any) => request.post("/addmessage", data) as Promise<ResponseData>;
-const getMsg = (data: any) => request.get("/getmessage", data) as Promise<MessageAPi>;
+const addMsg = (data: any) => request.post("/addAli", data) as Promise<ResponseData>;
+const getMsg = (data: any) => request.get("/getAli", data) as Promise<MessageAPi>;
 
 
 

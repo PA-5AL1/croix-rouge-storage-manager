@@ -25,7 +25,7 @@ export default function SearchPage() {
   const [total, setTotal] = useState(0);
   const [showModal, setShow] = useState(false);
 
-  // get list
+  // get alimentaire
   const getDataList = (data: PageInfo) => {
     getHygiene(data).then((res) => {
       const { data, status } = res;
@@ -46,7 +46,7 @@ export default function SearchPage() {
     });
   };
 
-  // add list
+  // add alimentaire
   const addList = () => {
     form.validateFields().then((values) => {
       addHygiene(values).then((res) => {
@@ -171,11 +171,27 @@ export default function SearchPage() {
           >
             <Input />
           </Form.Item>
+          <Form.Item
+              label="le fournisseur"
+              name="provider"
+              rules={[
+                {
+                  required: true,
+                  message: "Veuillez entrer le fournisseur",
+                },
+                {
+                  min: 3,
+                  message: "La description doit faire plus de 3 mots",
+                },
+              ]}
+          >
+            <Input />
+          </Form.Item>
         </Form>
       </Modal>
     </div>
   );
 }
 SearchPage.route = {
-  [MENU_PATH]: "/list/hygiene",
+  [MENU_PATH]: "/alimentaire/hygiene",
 };

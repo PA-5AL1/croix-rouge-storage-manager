@@ -20,7 +20,7 @@ const fallback = <Spin style={{
   justifyContent: "center",
   minHeight: 500,
   fontSize: 24,
-}} tip="页面加载中...." />
+}} tip="chargement des pages...." />
 
 interface Props {
   [MENU_PATH]?: string
@@ -84,7 +84,7 @@ function Intercept({ menuList, components: Components, [MENU_TITLE]: title, [MEN
     return (
       <Error
         status="403"
-        errTitle="权限不够"
+        errTitle="Autorité insuffisante"
         subTitle="Sorry, you are not authorized to access this page."
       />
     );

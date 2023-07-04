@@ -91,8 +91,7 @@ function RegistrationForm() {
           width: 70,
         }}
       >
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
+        <Option value="33">+33</Option>
       </Select>
     </Form.Item>
   );
@@ -121,8 +120,8 @@ function RegistrationForm() {
         onFinish={onFinish}
         className="index-form"
         initialValues={{
-          residence: ["zhejiang", "hangzhou", "xihu"],
-          prefix: "86",
+          residence: ["", "", ""],
+          prefix: "33",
         }}
         scrollToFirstError
       >
@@ -185,7 +184,7 @@ function RegistrationForm() {
 
         <Form.Item
           name="nickname"
-          label="Nickname"
+          label="Pseudo"
           tooltip="Comment voulez-vous que les autres vous appellent?"
           rules={[
             {
@@ -200,7 +199,7 @@ function RegistrationForm() {
 
         <Form.Item
           name="residence"
-          label="Habitual Residence"
+          label="Address"
           rules={[
             {
               type: "array",
@@ -209,7 +208,7 @@ function RegistrationForm() {
             },
           ]}
         >
-          <Cascader options={residences} />
+          <Input />
         </Form.Item>
 
         <Form.Item
@@ -249,30 +248,30 @@ function RegistrationForm() {
           </AutoComplete>
         </Form.Item>
 
-        <Form.Item
-          label="Captcha"
-          extra="Nous devons nous assurer que vous êtes un humain."
-        >
-          <Row gutter={8}>
-            <Col span={12}>
-              <Form.Item
-                name="captcha"
-                noStyle
-                rules={[
-                  {
-                    required: true,
-                    message: "Veuillez saisir le captcha que vous avez obtenu",
-                  },
-                ]}
-              >
-                <Input />
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              <Button>Get captcha</Button>
-            </Col>
-          </Row>
-        </Form.Item>
+        {/*<Form.Item*/}
+        {/*  label="Captcha"*/}
+        {/*  extra="Nous devons nous assurer que vous êtes un humain."*/}
+        {/*>*/}
+        {/*  <Row gutter={8}>*/}
+        {/*    <Col span={12}>*/}
+        {/*      <Form.Item*/}
+        {/*        name="captcha"*/}
+        {/*        noStyle*/}
+        {/*        rules={[*/}
+        {/*          {*/}
+        {/*            required: true,*/}
+        {/*            message: "Veuillez saisir le captcha que vous avez obtenu",*/}
+        {/*          },*/}
+        {/*        ]}*/}
+        {/*      >*/}
+        {/*        <Input />*/}
+        {/*      </Form.Item>*/}
+        {/*    </Col>*/}
+        {/*    <Col span={12}>*/}
+        {/*      <Button>Get captcha</Button>*/}
+        {/*    </Col>*/}
+        {/*  </Row>*/}
+        {/*</Form.Item>*/}
 
         <Form.Item
           name="agreement"

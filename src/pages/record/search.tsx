@@ -7,14 +7,13 @@ import {
   Row,
   Col,
   Spin,
-  message, Popconfirm,
+  message,
 } from "antd";
 import MyPagination, { PageInfo } from "@/components/pagination";
-import {getMsg, addMsg, delMenu, getMenuList} from "@/api";
+import { getMsg, addMsg } from "@/api";
 import MyTable from "@/components/table";
 import "./index.less";
 import { MessageList, MapKey } from "@/types"
-import {ModalType, SelectInfo} from "@pages/power/menu";
 
 export default function SearchPage() {
   const [form] = Form.useForm();
@@ -27,53 +26,6 @@ export default function SearchPage() {
   const [showModal, setShow] = useState(false);
 
 
-  const [selectInfo, setSelectInfo] = useState<SelectInfo>({});
-  const [modalType, setModalType] = useState<ModalType>('add');
-  const [showModal2, setShowModal] = useState(false);
-  const openModal = (type: ModalType, { key, isParent }: SelectInfo) => {
-    setSelectInfo({ key, isParent: !Boolean(isParent) });
-    setModalType(type);
-    setShowModal(true);
-  };
-  const menuAction = {
-    title: "Opération",
-    dataIndex: "action",
-    key: "action",
-    align: "center",
-    render: (text: any, record: any) => {
-      return (
-          <Row>
-            <Button type="link" onClick={() => openModal("edit", record)}>
-              modifier
-            </Button>
-            <Button type="link" onClick={() => openModal("addChild", record)}>
-              ajouter un sous-menu
-            </Button>
-            <Popconfirm
-                onConfirm={() => deleteMenu(record)}
-                okText="confirmer"
-                title="La suppression du menu sélectionné supprimera tous les sous-menus qu'il contient. Confirmer la suppression?"
-                cancelText="annuler"
-            >
-              <Button type="link" danger>
-                supprimer
-              </Button>
-            </Popconfirm>
-          </Row>
-      );
-    },
-  };
-  const deleteMenu = (info: any) => {
-    delMenu(info).then((res) => {
-      const { msg, status } = res;
-      if (status === 0) {
-        message.success(msg);
-        getMenuList();
-      }
-    });
-  };
-
-  // 获取列表
   const getDataList = (data: PageInfo) => {
     getMsg(data).then((res) => {
       const { data, status } = res;
@@ -94,7 +46,7 @@ export default function SearchPage() {
     });
   };
 
-  // 添加列表
+
   const addList = () => {
     form.validateFields().then((values) => {
       addMsg(values).then((res) => {
@@ -108,14 +60,14 @@ export default function SearchPage() {
     });
   };
 
-  // 顶部搜索
+
   const search = () => {
     let data = searchForm.getFieldsValue();
     setPageData({ page: 1 })
     getDataList(data);
   };
 
-  // 页码改版
+
   const pageChange = (pageData: PageInfo) => {
     let data = searchForm.getFieldsValue();
     getDataList({ ...pageData, ...data });
@@ -219,11 +171,27 @@ export default function SearchPage() {
           >
             <Input />
           </Form.Item>
+          <Form.Item
+              label="le fournisseur"
+              name="provider"
+              rules={[
+                {
+                  required: true,
+                  message: "Veuillez entrer le fournisseur",
+                },
+                {
+                  min: 3,
+                  message: "La description doit faire plus de 3 mots",
+                },
+              ]}
+          >
+            <Input />
+          </Form.Item>
         </Form>
       </Modal>
     </div>
   );
 }
 SearchPage.route = {
-  [MENU_PATH]: "/list/search",
+  [MENU_PATH]: "/details/record",
 };

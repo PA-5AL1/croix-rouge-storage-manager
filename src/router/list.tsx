@@ -40,7 +40,7 @@ const defaultArr: RouterInfo[] = [
   },
   {
     [MENU_PATH]: "*",
-    [MENU_TITLE]: "页面不存在",
+    [MENU_TITLE]: "la page n'existe pas",
     [MENU_KEY]: "404",
     [MENU_KEEPALIVE]: "true",
     components: Error,

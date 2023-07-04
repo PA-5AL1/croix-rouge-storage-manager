@@ -46,7 +46,7 @@ export default function SearchPage() {
     });
   };
 
-  // add list
+  // add alimentaire
   const addList = () => {
     form.validateFields().then((values) => {
       addSecourisme(values).then((res) => {
@@ -168,6 +168,22 @@ export default function SearchPage() {
                 message: "La description doit faire plus de 3 mots",
               },
             ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+              label="le fournisseur"
+              name="provider"
+              rules={[
+                {
+                  required: true,
+                  message: "Veuillez entrer le fournisseur",
+                },
+                {
+                  min: 3,
+                  message: "La description doit faire plus de 3 mots",
+                },
+              ]}
           >
             <Input />
           </Form.Item>

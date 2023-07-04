@@ -25,7 +25,7 @@ export default function SearchPage() {
   const [total, setTotal] = useState(0);
   const [showModal, setShow] = useState(false);
 
-  // get list
+  // get alimentaire
   const getDataList = (data: PageInfo) => {
     getUniforme(data).then((res) => {
       const { data, status } = res;
@@ -46,7 +46,7 @@ export default function SearchPage() {
     });
   };
 
-  // add list
+  // add alimentaire
   const addList = () => {
     form.validateFields().then((values) => {
       addUniforme(values).then((res) => {
@@ -177,5 +177,5 @@ export default function SearchPage() {
   );
 }
 SearchPage.route = {
-  [MENU_PATH]: "/list/logistique",
+  [MENU_PATH]: "/alimentaire/logistique",
 };
