@@ -1,6 +1,6 @@
 import ajax from "@/common/ajax";
+import { LoginApi, MenuInfoApi, MenuListResponse, MenuResponse, MessageAPi, PowerApi, ResponseData, ResponseUserInfo, UserListApi, VisitorApi, VisitorListApi } from "@/types";
 import mock from "../mock/index";
-import { MessageAPi, ResponseData, LoginApi, PowerApi, MenuInfoApi, UserListApi, ResponseUserInfo, VisitorApi, VisitorListApi, MenuResponse, MenuListResponse } from "@/types"
 
 const request = process.env.REACT_APP_MOCK === "1" ? mock : ajax;
 
@@ -35,22 +35,7 @@ const editUser = (data: any) => request.post("/edituserinfo", data) as Promise<R
 const editType = (data: any) => request.post("/edittype", data) as Promise<ResponseData>;
 const addType = (data: any) => request.post("/addtype", data) as Promise<ResponseData>;
 export {
-  getMenu,
-  login,
   addMenu,
-  addMsg,
-  getMsg,
-  getPower,
-  delMenu,
-  getMenuInfo,
-  editMenu,
-  getVisitorList,
-  getVisitorData,
-  getUserList,
-  addUser,
-  getUser,
-  editUser,
-  editType,
-  addType,
-  getMenuList
+  addMsg, addType, addUser, delMenu, editMenu, editType, editUser, getMenu, getMenuInfo, getMenuList, getMsg,
+  getPower, getUser, getUserList, getVisitorData, getVisitorList, login
 };

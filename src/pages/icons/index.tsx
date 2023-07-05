@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { Input, Row, Col } from "antd";
 import MyIcon from "@/components/icon";
-import "./index.less";
+import { Col, Input, Row } from "antd";
+import { useState } from "react";
+import "./icons.less";
 
 interface IconItem {
   icon_id: string,

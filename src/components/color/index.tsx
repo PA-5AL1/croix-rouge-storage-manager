@@ -1,8 +1,7 @@
+import { Button, Col, Row } from "antd";
 import { memo, useCallback, useEffect, useState } from "react";
 import { SketchPicker } from "react-color";
-import { Row, Col, Button } from "antd";
-import "./index.less";
-
+import "./color.less";
 
 interface Position {
   left: number

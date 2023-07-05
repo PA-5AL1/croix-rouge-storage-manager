@@ -1,7 +1,7 @@
-import { Provider } from "react-redux";
-import store from "./store";
 import loadable from "@loadable/component";
+import { Provider } from "react-redux";
 import LayoutSet from "./components/layout-set";
+import store from "./store";
 const AppRouter = loadable(() => import("./router/appRouter"));
 function Theme() {
   if (process.env.showColorSet) {

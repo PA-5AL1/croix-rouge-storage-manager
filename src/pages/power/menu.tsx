@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import { Row, Button, message, Popconfirm } from "antd";
 import { getMenuList as apiGetList, delMenu } from "@/api";
+import MyIcon from "@/components/icon";
 import MenuModal from "@/components/modal/menu";
 import MyTable from "@/components/table";
-import MyIcon from "@/components/icon";
-import { MenuList, MapKey } from "@/types"
-import "./index.less";
+import { MapKey, MenuList } from "@/types";
+import { Button, Popconfirm, Row, message } from "antd";
+import { useEffect, useState } from "react";
+import "./power.less";
 
 
 export type ModalType = "add" | "addChild" | "edit"

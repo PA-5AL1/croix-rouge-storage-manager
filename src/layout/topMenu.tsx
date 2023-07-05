@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import MenuDnd from "@/components/menu-dnd";
+import { getMenus } from "@/common";
 import MyIcon from "@/components/icon";
+import MenuDnd from "@/components/menu-dnd";
+import { useStateSelectMenuKey } from "@/store/hooks";
+import { MenuItem, MenuList } from "@/types";
 import { reduceMenuList } from "@/utils";
 import { Breadcrumb } from "antd";
-import { getMenus } from "@/common";
-import { MenuItem, MenuList } from "@/types"
-import { useStateSelectMenuKey } from "@/store/hooks";
+import { useEffect, useState } from "react";
 
 
 

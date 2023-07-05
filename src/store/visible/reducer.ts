@@ -1,5 +1,5 @@
+import { State } from "@/types";
 import { getCompVisible } from "@/utils";
-import { State } from "@/types"
 const visible = getCompVisible() || { footer: true, topMenu: true };
 
 export default function reducer(state = visible, action: {

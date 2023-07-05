@@ -1,6 +1,6 @@
-import * as actionTypes from "./actionTypes";
+import { LayoutAction } from "@/types";
 import { getLayoutMode } from "@/utils";
-import { LayoutAction } from "@/types"
+import * as actionTypes from "./actionTypes";
 
 const layout = getLayoutMode() || actionTypes.TWO_COLUMN;
 

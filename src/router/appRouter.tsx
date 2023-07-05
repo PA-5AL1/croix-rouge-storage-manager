@@ -1,17 +1,17 @@
+import Layout from "@/layout";
+import { useDispatchUser, useStateUserInfo } from "@/store/hooks";
+import { getLocalUser } from "@/utils";
+import Login from "@pages/login";
+import { Spin } from "antd";
 import { useEffect, useState } from "react";
 import { BrowserRouter, HashRouter } from "react-router-dom";
-import { Spin } from "antd";
-import Layout from "@/layout";
-import Login from "@pages/login";
-import { getLocalUser } from "@/utils";
-import { useDispatchUser, useStateUserInfo } from "@/store/hooks";
 
 const isHash = process.env.REACT_APP_ROUTER_ISHASH === "1"
 const RouterBasename = process.env.REACT_APP_ROUTERBASE || "/"
 
 
 export default function AppRouter() {
-  const [loading, setLoad] = useState(true);
+  const [loading, setLoad] = useState(false);
   const { stateSetUser } = useDispatchUser()
   const userInfo = useStateUserInfo()
 

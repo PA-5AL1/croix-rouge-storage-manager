@@ -1,19 +1,19 @@
-import { useState } from "react";
+import { addMsg, getMsg } from "@/api";
+import MyPagination, { PageInfo } from "@/components/pagination";
+import MyTable from "@/components/table";
+import { MapKey, MessageList } from "@/types";
 import {
+  Button,
+  Col,
   Form,
   Input,
   Modal,
-  Button,
   Row,
-  Col,
   Spin,
   message,
 } from "antd";
-import MyPagination, { PageInfo } from "@/components/pagination";
-import { getMsg, addMsg } from "@/api";
-import MyTable from "@/components/table";
-import "./index.less";
-import { MessageList, MapKey } from "@/types"
+import { useState } from "react";
+import "./card.less";
 
 export default function SearchPage() {
   const [form] = Form.useForm();

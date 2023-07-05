@@ -1,9 +1,9 @@
-import React, { memo, useEffect, useState } from "react";
 import ReactEChartsCore from "echarts-for-react/lib/core";
-import * as echarts from "echarts/core";
 import { PieChart } from "echarts/charts";
-import { TooltipComponent, GridComponent } from "echarts/components";
+import { GridComponent, TooltipComponent } from "echarts/components";
+import * as echarts from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
+import { memo, useEffect, useState } from "react";
 
 echarts.use([TooltipComponent, GridComponent, PieChart, CanvasRenderer]);
 

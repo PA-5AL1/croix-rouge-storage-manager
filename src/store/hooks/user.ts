@@ -1,7 +1,7 @@
 import { UserInfo } from "@/types";
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setUserInfoAction, clearUser } from "../action";
+import { clearUser, setUserInfoAction } from "../action";
 import { getStateUser } from "../getters";
 
 export const useStateUserInfo = () => useSelector(getStateUser)

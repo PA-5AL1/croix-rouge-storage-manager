@@ -1,11 +1,11 @@
-import { ReactNode, useEffect, useState } from "react";
-import MyIcon from "@/components/icon";
+import { addMenu, editMenu, getMenuInfo } from "@/api";
 import MyForm, { FormItemData } from "@/components/form";
-import { Modal, Select, message, FormInstance } from "antd";
-import { addMenu, getMenuInfo, editMenu } from "@/api";
-import { MenuList, MenuItem } from "@/types"
-import { ModalType, SelectInfo } from "@/pages/power/menu"
-import "./index.less";
+import MyIcon from "@/components/icon";
+import { ModalType, SelectInfo } from "@/pages/power/menu";
+import { MenuItem, MenuList } from "@/types";
+import { FormInstance, Modal, Select, message } from "antd";
+import { ReactNode, useEffect, useState } from "react";
+import "./menu.less";
 interface IconItem {
   icon_id: string,
   name: string,

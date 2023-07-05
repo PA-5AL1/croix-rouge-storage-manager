@@ -1,9 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
-import { Modal, message, Tree, FormInstance } from "antd";
-import MyForm, { FormItemData } from "@/components/form";
 import { addType, editType } from "@/api";
+import MyForm, { FormItemData } from "@/components/form";
 import { MenuItem, MenuList } from "@/types";
 import { reduceMenuList } from "@/utils";
+import { FormInstance, Modal, Tree, message } from "antd";
+import { useEffect, useMemo, useState } from "react";
 const initFormItems: FormItemData[] = [
   {
     itemType: "input",

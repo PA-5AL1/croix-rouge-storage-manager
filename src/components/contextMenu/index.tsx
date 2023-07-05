@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
-import "./index.less"
+import "./contextMenu.less"
 
 export type CloseType = "all" | "right" | "left" | "current"
 

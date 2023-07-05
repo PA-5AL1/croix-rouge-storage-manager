@@ -1,4 +1,4 @@
-import { State } from "@/types"
+import { State } from "@/types";
 
 export { default as SingleColumn } from "./singleColumn";
 export { default as TowColumn } from "./twoColumn";

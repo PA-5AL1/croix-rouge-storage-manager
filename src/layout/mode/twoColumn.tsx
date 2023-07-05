@@ -1,10 +1,10 @@
+import Router from "@/router";
 import { Layout } from "antd";
+import Footer from "../footer";
 import Header from "../header";
 import Menu from "../siderMenu";
 import TopMenu from "../topMenu";
-import Footer from "../footer";
-import Router from "@/router";
-import { LayoutModeProps } from "./index"
+import { LayoutModeProps } from "./index";
 const { Content } = Layout;
 
 const TowColumn = ({ visible }: LayoutModeProps) => {

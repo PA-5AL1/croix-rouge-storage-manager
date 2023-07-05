@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useState } from "react";
-import { Drawer, Col, Row, message, Button, Radio, notification } from "antd";
-import MyIcon from "@/components/icon";
 import Color from "@/components/color";
-import { getKey, setKey, rmKey } from "@/utils";
-import "./index.less";
+import MyIcon from "@/components/icon";
+import { getKey, rmKey, setKey } from "@/utils";
+import { Button, Col, Drawer, Radio, Row, message, notification } from "antd";
+import { useCallback, useEffect, useState } from "react";
+import "./theme.less";
 
 interface ThemeData {
   label: string

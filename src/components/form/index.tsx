@@ -1,5 +1,5 @@
+import { Form, FormInstance, Input, InputNumber, Radio, Select, Switch } from "antd";
 import { ReactNode, useEffect, useState } from "react";
-import { Form, Input, Select, Radio, Switch, InputNumber, FormInstance } from "antd";
 
 interface MyFormProps {
   handleInstance: (form: FormInstance) => void

@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import "./index.less";
 import {
+  AutoComplete,
+  Button,
+  Cascader,
+  Checkbox,
+  Col,
   Form,
   Input,
-  Cascader,
-  Select,
   Row,
-  Col,
-  Checkbox,
-  Button,
-  AutoComplete,
+  Select,
 } from "antd";
+import { useState } from "react";
+import "./form.less";
 const { Option } = Select;
 const residences = [
   {

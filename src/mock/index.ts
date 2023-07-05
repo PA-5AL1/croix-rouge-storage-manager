@@ -1,7 +1,7 @@
-import dayjs from "dayjs";
-import { message } from "antd";
-import { PowerApi, LoginApi, ResponseData, MenuInfoApi, MessageList, MessageAPi, MenuResponse, MenuList, MenuItem } from "@/types"
+import { LoginApi, MenuInfoApi, MenuItem, MenuList, MenuResponse, MessageAPi, MessageList, PowerApi, ResponseData } from "@/types";
 import { formatMenu } from "@/utils";
+import { message } from "antd";
+import dayjs from "dayjs";
 
 type MockDataType = {
   "/getmenu": MenuResponse

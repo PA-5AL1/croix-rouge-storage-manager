@@ -1,5 +1,5 @@
 import { getMenus, } from "@/common";
-import { MenuItem, MenuList, UserInfo, LayoutMode, MenuResponse, State, MenuMap } from "@/types"
+import { LayoutMode, MenuItem, MenuList, MenuMap, MenuResponse, State, UserInfo } from "@/types";
 export const USER_INFO = "USER_INFO";
 export const TOKEN = "admin_token";
 export const MENU = "MENU";
@@ -181,24 +181,8 @@ function setCompVisible(val: State["componentsVisible"]) {
 }
 
 export {
-  getDefaultMenu,
-  getSessionUser,
-  saveUser,
-  sleep,
-  getLocalUser,
-  getMenuParentKey,
-  reduceMenuList,
-  getLocalMenu,
-  saveLocalMenu,
-  saveToken,
-  getToken,
-  getKey,
-  setKey,
-  rmKey,
-  stopPropagation,
-  getLayoutMode,
-  setLayoutMode,
   clearLocalDatas,
-  getCompVisible,
-  setCompVisible,
+  getCompVisible, getDefaultMenu, getKey, getLayoutMode, getLocalMenu, getLocalUser,
+  getMenuParentKey, getSessionUser, getToken, reduceMenuList, rmKey, saveLocalMenu,
+  saveToken, saveUser, setCompVisible, setKey, setLayoutMode, sleep, stopPropagation
 };

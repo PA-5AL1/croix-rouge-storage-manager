@@ -1,8 +1,8 @@
-import { Result, Button } from "antd";
-import { getDefaultMenu, } from "@/utils";
-import { useHistory } from "react-router-dom";
-import { useCallback } from "react";
 import { useDispatchMenu, useStateOpenedMenu } from "@/store/hooks";
+import { getDefaultMenu, } from "@/utils";
+import { Button, Result } from "antd";
+import { useCallback } from "react";
+import { useHistory } from "react-router-dom";
 
 interface ErrProps {
   status: 403 | 404 | 500 | '403' | '404' | '500'

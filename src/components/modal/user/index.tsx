@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { Modal,  Select, message, FormInstance } from "antd";
+import { addUser, editUser, getPower, getUser } from "@/api";
 import MyForm, { FormItemData } from "@/components/form";
-import { getPower, addUser, getUser, editUser } from "@/api";
+import { FormInstance, Modal, Select, message } from "antd";
+import { useEffect, useState } from "react";
 
 export type UserID = null | number
 interface UserProps {

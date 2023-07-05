@@ -1,12 +1,12 @@
-import { useEffect, useMemo, useState } from "react";
-import { Route } from "react-router-dom";
-import { CacheRoute, CacheSwitch } from "react-router-cache-route";
-import routerList, { RouterInfo } from "./list";
-import Intercept from "./intercept";
 import { getMenus } from "@/common";
-import { formatMenu, reduceMenuList } from "@/utils";
-import { MenuList } from "@/types"
 import { useDispatchMenu } from "@/store/hooks";
+import { MenuList } from "@/types";
+import { formatMenu, reduceMenuList } from "@/utils";
+import { useEffect, useMemo, useState } from "react";
+import { CacheRoute, CacheSwitch } from "react-router-cache-route";
+import { Route } from "react-router-dom";
+import Intercept from "./intercept";
+import routerList, { RouterInfo } from "./list";
 
 
 export default function Router() {

@@ -1,4 +1,4 @@
-import { TableProps, ColumnType } from "antd/es/table"
+import { ColumnType, TableProps } from "antd/es/table"
 
 export type MyTableProps = Omit<TableProps<any>, "columns"> & {
   saveKey?: string

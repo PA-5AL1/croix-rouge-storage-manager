@@ -19,4 +19,4 @@ const Line = loadable(() => import("./line"), { fallback: loaddingCom });
 const Bar = loadable(() => import("./bar"), { fallback: loaddingCom });
 const Pie = loadable(() => import("./pie"), { fallback: loaddingCom });
 
-export { Line, Bar, Pie };
+export { Bar, Line, Pie };

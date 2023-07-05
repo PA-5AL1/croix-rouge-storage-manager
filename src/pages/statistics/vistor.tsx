@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import { Row, Col, Card, Progress } from "antd";
-import { getVisitorList, getVisitorData } from "@/api";
+import { getVisitorData, getVisitorList } from "@/api";
 import { Line as LineEchart } from "@/components/echarts";
 import MyPagination, { PageInfo } from "@/components/pagination";
 import MyTable from "@/components/table";
-import "./index.less";
-import { VisitData, MapKey } from "@/types"
+import { MapKey, VisitData } from "@/types";
+import { Card, Col, Progress, Row } from "antd";
+import { useEffect, useState } from "react";
+import "./statistics.less";
 
 const getOpt = () => ({
   xAxis: {
