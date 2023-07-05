@@ -10,10 +10,10 @@ import {
   message,
 } from "antd";
 import MyPagination, { PageInfo } from "@/components/pagination";
-import { getMsg, addMsg } from "@/api";
 import MyTable from "@/components/table";
 import "./index.less";
 import { MessageList, MapKey } from "@/types"
+import {addRecord, getRecord} from "@/api/details";
 
 export default function SearchPage() {
   const [form] = Form.useForm();
@@ -27,7 +27,7 @@ export default function SearchPage() {
 
 
   const getDataList = (data: PageInfo) => {
-    getMsg(data).then((res) => {
+    getRecord(data).then((res) => {
       const { data, status } = res;
       if (status === 0 && data) {
         let { list, total, mapKey } = data;
@@ -49,7 +49,7 @@ export default function SearchPage() {
 
   const addList = () => {
     form.validateFields().then((values) => {
-      addMsg(values).then((res) => {
+      addRecord(values).then((res) => {
         if (res.status === 0) {
           form.resetFields();
           message.success(res.msg);
@@ -79,7 +79,7 @@ export default function SearchPage() {
       <Col style={{ lineHeight: "32px" }}></Col>
       <Col>
         <Button type="primary" onClick={() => setShow(true)}>
-          ajouter un article
+          ajouter un record
         </Button>
       </Col>
     </Row>

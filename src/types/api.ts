@@ -8,6 +8,8 @@ export type LogistiqueList = LogistiqueItem[]
 export type BricolageList = BricolageItem[]
 export type UniformeList = UniformeItem[]
 export type FormationList = FormationItem[]
+export type RecordList = RecordItem[]
+
 
 type SecourismeItem = {
   add_time: string
@@ -197,5 +199,22 @@ export interface VisitorListApi extends ResponseData {
     mapKey: MapKey
     list: VisitData[]
     total: number
+  }
+}
+
+
+type RecordItem = {
+  add_time: string
+  creator: string
+  description: string
+  m_id: number
+  name: string
+}
+
+export interface RecordAPi extends ResponseData {
+  data?: {
+    total: number
+    mapKey: MapKey
+    list: RecordList
   }
 }

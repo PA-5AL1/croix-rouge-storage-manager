@@ -193,5 +193,5 @@ export default function SearchPage() {
   );
 }
 SearchPage.route = {
-  [MENU_PATH]: "/alimentaire/hygiene",
+  [MENU_PATH]: "/list/hygiene",
 };

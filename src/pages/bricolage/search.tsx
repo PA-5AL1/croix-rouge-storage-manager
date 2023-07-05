@@ -177,5 +177,5 @@ export default function SearchPage() {
   );
 }
 SearchPage.route = {
-  [MENU_PATH]: "/list/logistique",
+  [MENU_PATH]: "/list/bricolage",
 };

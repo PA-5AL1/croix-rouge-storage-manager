@@ -1,5 +1,4 @@
 import ajax from "@/common/ajax";
-import mock from "../mock/index";
 import {  ResponseData, SecourismeAPi, HygieneAPi, LogistiqueAPi, BricolageAPi, UniformeAPi, FormationAPi } from "@/types"
 
 const request =  ajax;

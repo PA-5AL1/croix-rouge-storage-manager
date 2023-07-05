@@ -1,17 +1,14 @@
 import ajax from "@/common/ajax";
-import mock from "../mock/index";
+
 import { MessageAPi, ResponseData, LoginApi, PowerApi, MenuInfoApi, UserListApi, ResponseUserInfo, VisitorApi, VisitorListApi, MenuResponse, MenuListResponse } from "@/types"
 
-const request = process.env.REACT_APP_MOCK === "1" ? mock : ajax;
+const request = ajax;
 
 
 const login = (data: any) => request.post("/login", data) as Promise<LoginApi>;
 
 const addMsg = (data: any) => request.post("/addAli", data) as Promise<ResponseData>;
 const getMsg = (data: any) => request.get("/getAli", data) as Promise<MessageAPi>;
-
-
-
 
 
 const getPower = () => request.get("/getpower") as Promise<PowerApi>;
