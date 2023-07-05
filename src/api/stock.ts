@@ -1,7 +1,19 @@
 import ajax from "@/common/ajax";
-import {  ResponseData, SecourismeAPi, HygieneAPi, LogistiqueAPi, BricolageAPi, UniformeAPi, FormationAPi } from "@/types"
+import {
+    ResponseData,
+    SecourismeAPi,
+    HygieneAPi,
+    LogistiqueAPi,
+    BricolageAPi,
+    UniformeAPi,
+    FormationAPi,
+    ResponseStockInfo
+} from "@/types"
 
 const request =  ajax;
+
+const getStockInfo = (data: any) => request.get("/getStockInfo", data) as Promise<ResponseData & { data: ResponseStockInfo }>;
+const editStockInfo = (data: any) => request.post("/edituserinfo", data) as Promise<ResponseData>;
 
 const addSecourisme = (data: any) => request.post("/addSecourisme", data) as Promise<ResponseData>;
 const updateSecourisme = (data: any) => request.put("/addSecourisme", data) as Promise<ResponseData>;
@@ -26,6 +38,8 @@ const getFormation = (data: any) => request.get("/getFormation", data) as Promis
 
 
 export {
+    getStockInfo,
+    editStockInfo,
     addSecourisme,
     getSecourisme,
     addHygiene,
@@ -38,4 +52,5 @@ export {
     getUniforme,
     addFormation,
     getFormation,
+
 }

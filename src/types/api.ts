@@ -163,6 +163,15 @@ export type ResponseUserInfo = {
   user_id: number
   username: string
 }
+
+export type ResponseStockInfo = {
+  add_time: string
+  creator: string
+  description: string
+  m_id: number
+  name: string
+}
+
 export interface UserListApi extends ResponseData {
   data: {
     list: ResponseUserInfo[]

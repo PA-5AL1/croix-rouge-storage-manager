@@ -13,7 +13,7 @@ import MyPagination, { PageInfo } from "@/components/pagination";
 import {getMsg, addMsg, delMenu, getMenuList} from "@/api";
 import MyTable from "@/components/table";
 import "./index.less";
-import { MessageList, MapKey } from "@/types"
+import {MessageList, MapKey, ResponseUserInfo, ResponseStockInfo} from "@/types"
 import {ModalType, SelectInfo} from "@pages/power/menu";
 import StockModal, {StockID} from "@/components/modal/stock";
 
@@ -26,6 +26,7 @@ export default function SearchPage() {
   const [load, setLoad] = useState(true);
   const [total, setTotal] = useState(0);
   const [showModal, setShow] = useState(false);
+  const [showModal2, setShow2] = useState(false);
 
 
   const [chooseId, setId] = useState<StockID>(null);
@@ -33,49 +34,49 @@ export default function SearchPage() {
 
   const [selectInfo, setSelectInfo] = useState<SelectInfo>({});
   const [modalType, setModalType] = useState<ModalType>('add');
-  const [showModal2, setShowModal] = useState(false);
-  const openModal = (type: ModalType, { key, isParent }: SelectInfo) => {
-    setSelectInfo({ key, isParent: !Boolean(isParent) });
-    setModalType(type);
-    setShowModal(true);
-  };
-  const menuAction = {
-    title: "Opération",
-    dataIndex: "action",
-    key: "action",
-    align: "center",
-    render: (text: any, record: any) => {
-      return (
-          <Row>
-            <Button type="link" onClick={() => openModal("edit", record)}>
-              modifier
-            </Button>
-            <Button type="link" onClick={() => openModal("addChild", record)}>
-              ajouter un sous-menu
-            </Button>
-            <Popconfirm
-                onConfirm={() => deleteMenu(record)}
-                okText="confirmer"
-                title="La suppression du menu sélectionné supprimera tous les sous-menus qu'il contient. Confirmer la suppression?"
-                cancelText="annuler"
-            >
-              <Button type="link" danger>
-                supprimer
-              </Button>
-            </Popconfirm>
-          </Row>
-      );
-    },
-  };
-  const deleteMenu = (info: any) => {
-    delMenu(info).then((res) => {
-      const { msg, status } = res;
-      if (status === 0) {
-        message.success(msg);
-        getMenuList();
-      }
-    });
-  };
+
+  // const openModal = (type: ModalType, { key, isParent }: SelectInfo) => {
+  //   setSelectInfo({ key, isParent: !Boolean(isParent) });
+  //   setModalType(type);
+  //   setShowModal(true);
+  // };
+  // const menuAction = {
+  //   title: "Opération",
+  //   dataIndex: "action",
+  //   key: "action",
+  //   align: "center",
+  //   render: (text: any, record: any) => {
+  //     return (
+  //         <Row>
+  //           <Button type="link" onClick={() => openModal("edit", record)}>
+  //             modifier
+  //           </Button>
+  //           <Button type="link" onClick={() => openModal("addChild", record)}>
+  //             ajouter un sous-menu
+  //           </Button>
+  //           <Popconfirm
+  //               onConfirm={() => deleteMenu(record)}
+  //               okText="confirmer"
+  //               title="La suppression du menu sélectionné supprimera tous les sous-menus qu'il contient. Confirmer la suppression?"
+  //               cancelText="annuler"
+  //           >
+  //             <Button type="link" danger>
+  //               supprimer
+  //             </Button>
+  //           </Popconfirm>
+  //         </Row>
+  //     );
+  //   },
+  // };
+  // const deleteMenu = (info: any) => {
+  //   delMenu(info).then((res) => {
+  //     const { msg, status } = res;
+  //     if (status === 0) {
+  //       message.success(msg);
+  //       getMenuList();
+  //     }
+  //   });
+  // };
 
 
   const activeCol = {
@@ -83,11 +84,20 @@ export default function SearchPage() {
     key: "active",
     title: "Opération",
     align: "center",
-    render: () => (
-        <Button type="link"  >
+    render: (text: string, record: ResponseStockInfo) => (
+        <Button type="link"  onClick={() => showInfoModal(record.m_id, true)}>
           modifier
         </Button>
     ),
+  }
+  const showInfoModal = (id: StockID, type: boolean) => {
+    console.log(id,'id')
+    if (id) {
+      setId(id);
+    } else {
+      setId(null);
+    }
+    setShow2(type);
   }
   const getDataList = (data: PageInfo) => {
     getMsg(data).then((res) => {
@@ -109,7 +119,9 @@ export default function SearchPage() {
       }
     });
   };
-
+  const updateUserData = () => {
+    getDataList(pageData);
+  }
 
   const addList = () => {
     form.validateFields().then((values) => {
@@ -177,7 +189,7 @@ export default function SearchPage() {
           dataSource={tableData}
           columns={tableCol}
           pagination={false}
-          saveKey="MyListSearch"
+          saveKey="MyListSearch1"
         />
         <MyPagination
           page={pageData.page}
@@ -185,12 +197,12 @@ export default function SearchPage() {
           change={pageChange}
           total={total}
         />
-        {/*<StockModal*/}
-        {/*    isShow={showModal}*/}
-        {/*    user_id={chooseId}*/}
-        {/*    onCancel={showInfoModal}*/}
-        {/*    onOk={updateUserData}*/}
-        {/*/>*/}
+        <StockModal
+            isShow={showModal2}
+            m_id={chooseId}
+            onCancel={showInfoModal}
+            onOk={updateUserData}
+        />
       </Spin>
       <Modal
         title="ajouter un article"

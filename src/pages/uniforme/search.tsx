@@ -113,7 +113,7 @@ export default function SearchPage() {
           dataSource={tableData}
           columns={tableCol}
           pagination={false}
-          saveKey="MyListSearch"
+          saveKey="MyListSearch6"
         />
         <MyPagination
           page={pageData.page}

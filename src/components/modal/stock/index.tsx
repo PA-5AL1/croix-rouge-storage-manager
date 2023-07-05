@@ -1,125 +1,93 @@
 import { useEffect, useState } from "react";
-import { Modal,  Select, message, FormInstance } from "antd";
+import { Modal, message, FormInstance } from "antd";
 import MyForm, { FormItemData } from "@/components/form";
-import { getPower, addUser, getUser, editUser } from "@/api";
+import {editStockInfo, getStockInfo} from "@/api/stock";
 
 export type StockID = null | number
-interface UserProps {
-  user_id: StockID
+interface StockProps {
+  m_id: StockID
   isShow: boolean
   onCancel: (id: StockID, s: boolean) => void
   onOk: () => void
 }
-const { Option } = Select;
 
-const paswdRule = [{ required: true, message: "Veuillez renseigner le mot de passe de connexion" }];
 const initFormItems: FormItemData[] = [
   {
     itemType: "input",
     itemProps: {
-      name: "username",
-      rules: [{ required: true, message: "s'il vous plaît entrez le nom d'utilisateur" }],
-      label: "nom d'utilisateur",
+      name: "name",
+      rules: [{ required: true, message: "s'il vous plaît entrez le nom de l'article" }],
+      label: "le nom de l'article",
     },
     childProps: {
-      placeholder: "nom d'utilisateur",
+      placeholder: "le nom de l'article",
     },
   },
   {
     itemType: "input",
     itemProps: {
-      name: "account",
-      rules: [{ required: true, message: "Veuillez renseigner le compte de connexion" }],
-      label: "le compte de connexion",
+      name: "weight",
+      rules: [{ required: true, message: "le poids de l'article" }],
+      label: "le poids de l'article",
     },
     childProps: {
-      placeholder: "le compte de connexion",
+      placeholder: "le poids de l'article",
     },
   },
   {
     itemType: "input",
     itemProps: {
-      name: "pswd",
-      label: "mot de passe",
+      rules: [{ required: true, message: "s'il vous plaît entrez la description" }],
+      name: "description",
+      label: "la description",
     },
     childProps: {
-      placeholder: "Mot de passe de connexion, s'il est rempli, cela signifie une modification",
-      type: "password",
+      placeholder: "la description",
     },
   },
   {
-    itemType: "select",
+    itemType: "input",
     itemProps: {
-      rules: [{ required: true, message: "Veuillez sélectionner les autorisations de menu" }],
-      name: "type_id",
-      label: "les autorisations de menu",
+      rules: [{ required: true, message: "s'il vous plaît entrez le fournisseur" }],
+      name: "provider",
+      label: "le fournisseur",
     },
     childProps: {
-      placeholder: "les autorisations de menu",
+      placeholder: "le fournisseur",
     },
   },
 ];
 
-export default function UserModal({ user_id, isShow, onCancel, onOk }: UserProps) {
+export default function UserModal({ m_id, isShow, onCancel, onOk }: StockProps) {
   const [form, setForm] = useState<FormInstance | null>(null);
   const [formItems, setItems] = useState<FormItemData[]>([]);
-  useEffect(() => {
-    if (isShow) {
-      getPower().then((res) => {
-        const { data, status } = res;
-        if (status === 0) {
-          let items = initFormItems.map((i) => ({ ...i }));
-          items.forEach((i) => {
-            if (i.itemProps.name === "type_id") {
-              i.childProps = { ...i.childProps }
-              i.childProps.children = data.map((power) => (
-                <Option value={power.type_id} key={power.type_id}>
-                  {power.name}
-                </Option>
-              ));
-            }
-          });
-          setItems(items);
-        }
-      });
-    }
-  }, [isShow]);
 
 
   useEffect(() => {
-    if (user_id && form) {
-      getUser({ user_id }).then((res) => {
+    if (m_id && form) {
+      getStockInfo({ m_id }).then((res) => {
         if (res.data) {
           form.setFieldsValue(res.data);
         }
       });
       let items = initFormItems.map((i) => ({ ...i }));
       items.forEach((i) => {
-        if (i.itemProps.name === "pswd") {
+        if (i.itemProps.name === "m_id") {
           i.itemProps.rules = undefined;
         }
       });
       setItems(items);
-    } else if (!user_id) {
+    } else if (!m_id) {
       // set formItem
       let items = initFormItems.map((i) => ({ ...i }));
-      items.forEach((i) => {
-        if (i.itemProps.name === "pswd") {
-          i.itemProps.rules = paswdRule;
-        }
-      });
       setItems(items);
     }
-  }, [user_id, form]);
+  }, [m_id, form]);
 
   const submit = () => {
     form && form.validateFields().then((values) => {
-      let modify = Boolean(user_id);
-      let fn = modify ? editUser : addUser;
-      if (modify) {
-        values.user_id = user_id;
-      }
-      fn(values).then((res) => {
+      values.m_id = m_id;
+      editStockInfo(values).then((res) => {
         if (res.status === 0) {
           message.success(res.msg);
           close();
@@ -135,7 +103,7 @@ export default function UserModal({ user_id, isShow, onCancel, onOk }: UserProps
   return (
     <Modal
       maskClosable={false}
-      title={user_id ? "Modifier les informations" : "Ajouter un compte"}
+      title="Modifier les informations"
       visible={isShow}
       okText="confirmer"
       cancelText="annuler"

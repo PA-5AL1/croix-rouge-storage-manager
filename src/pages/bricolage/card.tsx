@@ -19,8 +19,8 @@ const dRules = [
     message: "Please input your description!",
   },
   {
-    min: 50,
-    message: "The description must be more than 50 words!",
+    min: 3,
+    message: "The description must be more than 3 words!",
   },
 ];
 const tRules = [
@@ -64,7 +64,7 @@ export default function CardPage() {
         <Col span={6}>
           <Card hoverable className="add-wapper" onClick={show}>
             <MyIcon type="icon_increase" />
-            <p>新增</p>
+            <p>Ajouter</p>
           </Card>
         </Col>
         {dataList.map((item) => (
