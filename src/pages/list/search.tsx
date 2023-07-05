@@ -13,8 +13,9 @@ import MyPagination, { PageInfo } from "@/components/pagination";
 import {getMsg, addMsg, delMenu, getMenuList} from "@/api";
 import MyTable from "@/components/table";
 import "./index.less";
-import { MessageList, MapKey } from "@/types"
+import {MessageList, MapKey, ResponseUserInfo, ResponseData} from "@/types"
 import {ModalType, SelectInfo} from "@pages/power/menu";
+import UserModal, {UserID} from "@/components/modal/user";
 
 export default function SearchPage() {
   const [form] = Form.useForm();
@@ -73,6 +74,28 @@ export default function SearchPage() {
     });
   };
 
+
+
+  const [chooseId, setId] = useState<UserID>(null);
+  const showInfoModal = (id: UserID, type: boolean) => {
+    if (id) {
+      setId(id);
+    } else {
+      setId(null);
+    }
+    setShow(type);
+  }
+  const activeCol = {
+    dataIndex: "active",
+    key: "active",
+    title: "Opération",
+    align: "center",
+    render: () => (
+        <Button type="link"  >
+          modifier
+        </Button>
+    ),
+  }
   const getDataList = (data: PageInfo) => {
     getMsg(data).then((res) => {
       const { data, status } = res;
@@ -84,6 +107,8 @@ export default function SearchPage() {
           }
           return i;
         });
+        mapKey.push(activeCol);
+        console.log(mapKey,'mapKey')
         setCol(mapKey);
         setTotal(total);
         setData(list.map((i) => ({ ...i, key: i.m_id })));
@@ -114,7 +139,9 @@ export default function SearchPage() {
     getDataList(data);
   };
 
-
+  const updateUserData = () => {
+    getDataList(pageData);
+  }
   const pageChange = (pageData: PageInfo) => {
     let data = searchForm.getFieldsValue();
     getDataList({ ...pageData, ...data });
@@ -167,6 +194,12 @@ export default function SearchPage() {
           immediately={getDataList}
           change={pageChange}
           total={total}
+        />
+        <UserModal
+            isShow={showModal}
+            user_id={chooseId}
+            onCancel={showInfoModal}
+            onOk={updateUserData}
         />
       </Spin>
       <Modal

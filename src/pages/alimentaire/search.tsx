@@ -15,6 +15,7 @@ import MyTable from "@/components/table";
 import "./index.less";
 import { MessageList, MapKey } from "@/types"
 import {ModalType, SelectInfo} from "@pages/power/menu";
+import StockModal, {StockID} from "@/components/modal/stock";
 
 export default function SearchPage() {
   const [form] = Form.useForm();
@@ -25,6 +26,9 @@ export default function SearchPage() {
   const [load, setLoad] = useState(true);
   const [total, setTotal] = useState(0);
   const [showModal, setShow] = useState(false);
+
+
+  const [chooseId, setId] = useState<StockID>(null);
 
 
   const [selectInfo, setSelectInfo] = useState<SelectInfo>({});
@@ -73,6 +77,18 @@ export default function SearchPage() {
     });
   };
 
+
+  const activeCol = {
+    dataIndex: "active",
+    key: "active",
+    title: "Opération",
+    align: "center",
+    render: () => (
+        <Button type="link"  >
+          modifier
+        </Button>
+    ),
+  }
   const getDataList = (data: PageInfo) => {
     getMsg(data).then((res) => {
       const { data, status } = res;
@@ -84,6 +100,7 @@ export default function SearchPage() {
           }
           return i;
         });
+        mapKey.push(activeCol);
         setCol(mapKey);
         setTotal(total);
         setData(list.map((i) => ({ ...i, key: i.m_id })));
@@ -168,6 +185,12 @@ export default function SearchPage() {
           change={pageChange}
           total={total}
         />
+        {/*<StockModal*/}
+        {/*    isShow={showModal}*/}
+        {/*    user_id={chooseId}*/}
+        {/*    onCancel={showInfoModal}*/}
+        {/*    onOk={updateUserData}*/}
+        {/*/>*/}
       </Spin>
       <Modal
         title="ajouter un article"
