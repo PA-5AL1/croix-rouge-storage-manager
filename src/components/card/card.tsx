@@ -1,32 +1,13 @@
 import { useState } from "react";
 import { Card, Avatar, Row, Col, Typography, Modal, Form, Input } from "antd";
-import MyIcon from "@/components/icon";
 import "./index.less";
 
 const list = [
   {
-    img: "https://gw.alipayobjects.com/zos/rmsportal/dURIMkkrRFpPgTuzkwnB.png",
-    title: "Ant Design",
+    img: "",
+    title: "Design",
     description:
-      "在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的组件会被抽离成一套标准规范。",
-  },
-  {
-    img: "https://gw.alipayobjects.com/zos/rmsportal/kZzEzemZyKLKFsojXItE.png",
-    title: "React",
-    description:
-      "在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的组件会被抽离成一套标准规范。",
-  },
-  {
-    img: "http://www.axios-js.com/logo.svg",
-    title: "axios",
-    description:
-      "在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的组件会被抽离成一套标准规范。",
-  },
-  {
-    img: "https://webpack.docschina.org/icon-square-small.85ba630cf0c5f29ae3e3.svg",
-    title: "Webpack",
-    description:
-      "在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的组件会被抽离成一套标准规范。",
+      "",
   },
 ];
 
@@ -80,19 +61,14 @@ export default function CardPage() {
     <div className="card-container">
       <Row gutter={[16, 16]}>
         <Col span={6}>
-          <Card hoverable className="add-wapper" onClick={show}>
-            <MyIcon type="icon_increase" />
-            <p>Ajouter</p>
-          </Card>
+
         </Col>
         {dataList.map((item) => (
           <Col span={6} key={item.title}>
             <Card
               hoverable
-              actions={[
-                <MyIcon type="icon_edit" className="icon" />,
-                <MyIcon className="icon" type="icon_setting" />,
-              ]}
+              style={{ width: 240 }}
+              cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
             >
               <Meta
                 avatar={<Avatar src={item.img} />}
