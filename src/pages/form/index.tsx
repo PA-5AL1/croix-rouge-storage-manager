@@ -11,6 +11,7 @@ import {
   Button,
   AutoComplete,
 } from "antd";
+import UploadImg from "@/components/upload";
 const { Option } = Select;
 const residences = [
   {
@@ -113,6 +114,7 @@ function RegistrationForm() {
   }));
   return (
     <div>
+      <UploadImg />
       <Form
         {...formItemLayout}
         form={form}

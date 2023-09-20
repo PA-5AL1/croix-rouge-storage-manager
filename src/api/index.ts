@@ -8,7 +8,7 @@ const request = ajax;
 const login = (data: any) => request.post("/login", data) as Promise<LoginApi>;
 
 const addMsg = (data: any) => request.post("/addAli", data) as Promise<ResponseData>;
-const getMsg = (data: any) => request.get("/getAli", data) as Promise<MessageAPi>;
+const getMsg = (data: any) => request.get("/getEvent", data) as Promise<MessageAPi>;
 
 
 const getPower = () => request.get("/getpower") as Promise<PowerApi>;

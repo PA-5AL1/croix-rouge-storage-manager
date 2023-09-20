@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Card, Row, Col, Typography, } from "antd";
 import MyIcon from "@/components/icon";
 import "./index.less";
+import routes from "@/router/auto";
 
 const list = [
     {
@@ -20,6 +21,7 @@ function useCardPage() {
 
     const show = () =>{
         console.log(111)
+        routes.push()
 
     }
     return {  dataList, show };
@@ -61,4 +63,4 @@ export default function CardPage() {
         </div>
     );
 }
-CardPage.route = { [MENU_PATH]: "/list/card" }
+CardPage.route = { [MENU_PATH]: "/list/card/1" }

@@ -43,7 +43,7 @@ function Intercept({ menuList, components: Components, [MENU_TITLE]: title, [MEN
   // 监听 location 改变
   const onPathChange = useCallback(() => {
     stateSetCurrentPath(currentPath)
-    stateAddOpenedMenu({ key: pageKey, path: currentPath, title: title || "未设置标题信息" });
+    stateAddOpenedMenu({ key: pageKey, path: currentPath, title: title || "title information not configured" });
   }, [currentPath, pageKey, title, stateSetCurrentPath, stateAddOpenedMenu])
 
   const setCurrentPageInfo = useCallback(() => {
