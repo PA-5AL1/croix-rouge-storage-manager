@@ -1,8 +1,16 @@
 import 'braft-editor/dist/index.css'
 import React from 'react'
 import BraftEditor from 'braft-editor'
+import {Button, Select} from "antd";
 
 export default class TextEditor extends React.Component {
+    handleSelect = (value: string | string[]) => {
+        console.log(`Selected: ${value}`);
+    };
+
+    addService = () =>{
+
+    }
 
     state = {
         editorState: BraftEditor.createEditorState()
@@ -110,6 +118,27 @@ export default class TextEditor extends React.Component {
 
         return (
             <div className="editor-wrapper">
+                <Select
+                    placeholder="Choisir le type"
+                    onChange={this.handleSelect}
+                    style={{ width: 200 }}
+                    options={[
+                        {
+                            value: 'Event',
+                            label: 'Event',
+                        },
+                        {
+                            value: 'Atelier',
+                            label: 'Atelier',
+                        },
+                        {
+                            value: 'Cours à domicile',
+                            label: 'Cours à domicile',
+                        },
+                    ]}
+                />
+                <br />
+                <br />
                 <BraftEditor
                     language="en"
                     onChange={this.handleChange}
@@ -117,6 +146,11 @@ export default class TextEditor extends React.Component {
                     extendControls={extendControls}
                     contentStyle={{height: 400}}
                 />
+                <br />
+                <br />
+                <br />
+                <br />
+                <Button type="primary" onClick={this.addService}>Ajouter</Button>
             </div>
         )
 
