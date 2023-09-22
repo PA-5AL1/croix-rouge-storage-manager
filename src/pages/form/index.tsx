@@ -250,31 +250,6 @@ function RegistrationForm() {
           </AutoComplete>
         </Form.Item>
 
-        {/*<Form.Item*/}
-        {/*  label="Captcha"*/}
-        {/*  extra="Nous devons nous assurer que vous êtes un humain."*/}
-        {/*>*/}
-        {/*  <Row gutter={8}>*/}
-        {/*    <Col span={12}>*/}
-        {/*      <Form.Item*/}
-        {/*        name="captcha"*/}
-        {/*        noStyle*/}
-        {/*        rules={[*/}
-        {/*          {*/}
-        {/*            required: true,*/}
-        {/*            message: "Veuillez saisir le captcha que vous avez obtenu",*/}
-        {/*          },*/}
-        {/*        ]}*/}
-        {/*      >*/}
-        {/*        <Input />*/}
-        {/*      </Form.Item>*/}
-        {/*    </Col>*/}
-        {/*    <Col span={12}>*/}
-        {/*      <Button>Get captcha</Button>*/}
-        {/*    </Col>*/}
-        {/*  </Row>*/}
-        {/*</Form.Item>*/}
-
         <Form.Item
           name="agreement"
           valuePropName="checked"

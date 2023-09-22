@@ -7,6 +7,7 @@ const request = ajax;
 
 const login = (data: any) => request.post("/login", data) as Promise<LoginApi>;
 
+const addService = (data: any) => request.post("/addService", data) as Promise<ResponseData>;
 const addMsg = (data: any) => request.post("/addAli", data) as Promise<ResponseData>;
 const getMsg = (data: any) => request.get("/getEvent", data) as Promise<MessageAPi>;
 
@@ -35,6 +36,7 @@ const editUser = (data: any) => request.post("/edituserinfo", data) as Promise<R
 const editType = (data: any) => request.post("/edittype", data) as Promise<ResponseData>;
 const addType = (data: any) => request.post("/addtype", data) as Promise<ResponseData>;
 export {
+  addService,
   getMenu,
   login,
   addMenu,
