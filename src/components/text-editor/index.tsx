@@ -5,7 +5,6 @@ import {Button, Form, message,} from "antd";
 import './index.less';
 import {addService} from "@/api";
 
-
 function TextEditor({formData}:any) {
      const [editorState, setEditorState] = useState(BraftEditor.createEditorState(null));
 
@@ -13,6 +12,7 @@ function TextEditor({formData}:any) {
     const handleEditorChange = (newEditorState: any) => {
         setEditorState(newEditorState);
     };
+
     const preview = () => {
         if (window.previewWindow) {
             window.previewWindow.close();
